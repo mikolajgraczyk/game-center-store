@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Register />
+      <main className="w-full flex justify-center">
+        <Login />
+      </main>
     </>
   );
 }
