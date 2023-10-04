@@ -28,7 +28,7 @@ const Register = () => {
           className="w-full rounded-[5px] bg-backgrounds-loginInput h-[40px] px-[16px] py-[10px]"
         />
         <input
-          {...register("email")}
+          {...register("mail")}
           placeholder="Email *"
           className="w-full rounded-[5px] bg-backgrounds-loginInput h-[40px] px-[16px] py-[10px]"
         />
