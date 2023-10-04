@@ -2,8 +2,8 @@
 
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 
+import { loginValidationSchema } from "./loginregisterValidationSchema";
 import Image from "next/image";
 import Input from "@/components/input";
 import FacebookLogo from "./FacebookLogo.svg";
@@ -11,20 +11,7 @@ import GoogleLogo from "./GoogleLogo.svg";
 import LoginTab from "@/components/loginTab";
 
 const Login = () => {
-  const validationSchema = Yup.object().shape({
-    mail: Yup.string()
-      .required("Email jest wymagany.")
-      .email("Niepoprawna forma Emaila."),
-    password: Yup.string()
-      .required("Hasło jest wymagane.")
-      .matches(
-        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
-        "Wymagane 8 znaków, jedna duża litera, jedna cyfra i jeden znak specjalny."
-      ),
-  });
-
-  const formOptions = { resolver: yupResolver(validationSchema) };
-
+  const formOptions = { resolver: yupResolver(loginValidationSchema) };
   const methods = useForm(formOptions);
 
   return (

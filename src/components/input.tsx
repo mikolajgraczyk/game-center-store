@@ -9,7 +9,7 @@ const Input: React.FC<InputProps> = ({ id, placeholder }) => {
   const { register, formState } = useFormContext();
   const { errors } = formState;
 
-  let inputType;
+  let inputType: string | undefined;
   if(id === "password" || id === "passwordConfirmation"){
     inputType = "password";
   }
