@@ -1,18 +1,28 @@
-import Image from "next/image";
+"use client";
 
+import { useForm } from "react-hook-form";
+import Image from "next/image";
 import FacebookLogo from "./FacebookLogo.svg";
 import GoogleLogo from "./GoogleLogo.svg";
 import LoginTab from "@/components/loginTab";
 
 const Login = () => {
+  const { register, handleSubmit } = useForm();
+
   return (
     <LoginTab>
-      <form className="flex flex-col gap-[20px] w-full mt-[27.78px]">
+      <form
+        className="flex flex-col gap-[20px] w-full mt-[27.78px]"
+        onSubmit={handleSubmit((data) => console.log(data))}
+      >
         <input
+          {...register("email")}
           placeholder="Email *"
           className="w-full rounded-[5px] bg-backgrounds-loginInput h-[40px] px-[16px] py-[10px]"
         />
         <input
+          {...register("password")}
+          type="password"
           placeholder="Hasło *"
           className="w-full rounded-[5px] bg-backgrounds-loginInput h-[40px] px-[16px] py-[10px]"
         />
