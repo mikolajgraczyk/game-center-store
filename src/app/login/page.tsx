@@ -1,23 +1,45 @@
+"use client";
+
+import { useForm, FormProvider } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginValidationSchema } from "./loginregisterValidationSchema";
+import Input from "@/components/input";
 import FacebookLogo from "/public/icons/FacebookLogo.svg";
 import GoogleLogo from "/public/icons/GoogleLogo.svg";
 import LoginTab from "@/components/loginTab";
 
 const Login = () => {
+  const formOptions = { resolver: yupResolver(loginValidationSchema) };
+  const methods = useForm(formOptions);
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = methods;
+
   return (
     <LoginTab>
-      <form className="flex flex-col gap-[20px] w-full mt-[27.78px]">
-        <input
-          placeholder="Email *"
-          className="w-full rounded-[5px] bg-backgrounds-loginInput h-[40px] px-[16px] py-[10px]"
-        />
-        <input
-          placeholder="Hasło *"
-          className="w-full rounded-[5px] bg-backgrounds-loginInput h-[40px] px-[16px] py-[10px]"
-        />
-        <button className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login">
-          Zaloguj się
-        </button>
-      </form>
+      <FormProvider {...methods}>
+        <form
+          className="flex flex-col gap-[20px] w-full mt-[27.78px]"
+          onSubmit={handleSubmit((data) => console.log(data))}
+        >
+          <Input
+            id="mail"
+            placeholder="Email *"
+            type="email"
+            errorMessage={errors.mail?.message}
+          />
+          <Input
+            id="password"
+            placeholder="Hasło *"
+            type="password"
+            errorMessage={errors.password?.message}
+          />
+          <button className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login">
+            Zaloguj się
+          </button>
+        </form>
+      </FormProvider>
       <div className="flex gap-[15px]">
         <button className="bg-backgrounds-socialButton p-[5px] rounded-full">
           <FacebookLogo />
