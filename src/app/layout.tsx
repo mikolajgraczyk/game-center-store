@@ -5,16 +5,16 @@ import Header from "@/components/header";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
+interface IRootLayout {
+  children: React.ReactNode
+}
+
 export const metadata: Metadata = {
   title: "Game Center",
   description: "Game Center Website",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({children}: IRootLayout) {
   return (
     <html lang="en">
       <body
