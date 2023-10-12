@@ -13,16 +13,30 @@ import LoginTab from "@/components/loginTab";
 const Login = () => {
   const formOptions = { resolver: yupResolver(loginValidationSchema) };
   const methods = useForm(formOptions);
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = methods;
 
   return (
     <LoginTab>
       <FormProvider {...methods}>
         <form
           className="flex flex-col gap-[20px] w-full mt-[27.78px]"
-          onSubmit={methods.handleSubmit((data) => console.log(data))}
+          onSubmit={handleSubmit((data) => console.log(data))}
         >
-          <Input id="mail" placeholder="Email *" />
-          <Input id="password" placeholder="Hasło *" />
+          <Input
+            id="mail"
+            placeholder="Email *"
+            type="email"
+            errorMessage={errors.mail?.message}
+          />
+          <Input
+            id="password"
+            placeholder="Hasło *"
+            type="password"
+            errorMessage={errors.password?.message}
+          />
           <button className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login">
             Zaloguj się
           </button>

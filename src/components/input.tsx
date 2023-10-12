@@ -1,33 +1,24 @@
+import React from "react";
 import { useFormContext } from "react-hook-form";
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
-  placeholder: string;
+  errorMessage?: string;
 }
 
-const Input: React.FC<InputProps> = ({ id, placeholder }) => {
-  const { register, formState } = useFormContext();
-  const { errors } = formState;
-
-  let inputType: string | undefined;
-  if(id === "password" || id === "passwordConfirmation"){
-    inputType = "password";
-  }
-  if(id === "age"){
-    inputType = "number";
-  }
+const Input: React.FC<InputProps> = ({ id, errorMessage, ...inputProps }) => {
+  const { register } = useFormContext();
 
   return (
     <div className="relative">
       <input
         {...register(id)}
-        type={inputType}
-        placeholder={placeholder}
+        {...inputProps}
         className="w-full rounded-[5px] bg-backgrounds-loginInput h-[40px] px-[16px] py-[10px]"
       />
-      {errors[id] ? (
+      {errorMessage ? (
         <span className="text-[10px] text-[#EA1818] absolute left-0 bottom-[-15px]">
-          {errors[id].message}
+          {errorMessage}
         </span>
       ) : (
         ""

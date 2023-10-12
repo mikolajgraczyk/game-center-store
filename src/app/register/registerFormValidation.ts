@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { regexs } from "@/constants/regexs";
+import { REGEXS } from "@/constants/regexs";
 
 export const registerValidationSchema = Yup.object().shape({
     name: Yup.string()
@@ -18,10 +18,10 @@ export const registerValidationSchema = Yup.object().shape({
     password: Yup.string()
       .required("Hasło jest wymagane.")
       .matches(
-        regexs.password,
+        REGEXS.password,
         "Minimum 8 znaków, jedna duża litera, jedna cyfra i jeden znak specjalny."
       ),
     passwordConfirmation: Yup.string()
-      .required("Powtóz hasło")
+      .required("Powtórz hasło")
       .oneOf([Yup.ref("password")], "Hasła muszą być takie same"),
   });
