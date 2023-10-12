@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import { regexs } from "@/constants/regexs";
 
 export const loginValidationSchema = Yup.object().shape({
   mail: Yup.string()
@@ -7,7 +8,7 @@ export const loginValidationSchema = Yup.object().shape({
   password: Yup.string()
     .required("Hasło jest wymagane.")
     .matches(
-      /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
+      regexs.password,
       "Wymagane 8 znaków, jedna duża litera, jedna cyfra i jeden znak specjalny."
     ),
 });
