@@ -2,12 +2,10 @@
 
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import { loginValidationSchema } from "./loginregisterValidationSchema";
-import Image from "next/image";
 import Input from "@/components/input";
-import FacebookLogo from "./FacebookLogo.svg";
-import GoogleLogo from "./GoogleLogo.svg";
+import FacebookLogo from "/public/icons/FacebookLogo.svg";
+import GoogleLogo from "/public/icons/GoogleLogo.svg";
 import LoginTab from "@/components/loginTab";
 
 const Login = () => {
@@ -44,10 +42,10 @@ const Login = () => {
       </FormProvider>
       <div className="flex gap-[15px]">
         <button className="bg-backgrounds-socialButton p-[5px] rounded-full">
-          <Image src={FacebookLogo} alt="Facebook Logo" />
+          <FacebookLogo />
         </button>
         <button className="bg-backgrounds-socialButton p-[5px] rounded-full">
-          <Image src={GoogleLogo} alt="Google Logo" />
+          <GoogleLogo />
         </button>
       </div>
     </LoginTab>

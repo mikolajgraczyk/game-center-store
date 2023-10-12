@@ -1,14 +1,6 @@
-import Header from "@/components/header";
-import Login from "./login/page";
-import Register from "./register/page";
+import { redirect } from "next/navigation";
+import { routes } from "@/constants/routes";
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <main className="w-full flex justify-center">
-        <Login />
-      </main>
-    </>
-  );
+  redirect(routes.login);
 }
