@@ -14,7 +14,7 @@ const gameSchema = new Schema(
     },
     discount: {
       type: Number,
-      required: true,
+      required: false,
     },
     id: {
       type: String || Number,
