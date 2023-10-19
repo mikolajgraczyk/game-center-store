@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import FacebookLogo from "./FacebookLogo.svg";
 import GoogleLogo from "./GoogleLogo.svg";
 import LoginTab from "@/components/loginTab";

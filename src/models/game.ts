@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const gamesSchema = new Schema(
+const gameSchema = new Schema(
   {
     name: {
       type: String,
@@ -28,4 +28,4 @@ const gamesSchema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.Post || mongoose.model("Post", gamesSchema);
+export default mongoose.models.Game || mongoose.model("Game", gameSchema);
