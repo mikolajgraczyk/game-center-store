@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useForm, FormProvider } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm, FormProvider } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { registerValidationSchema } from "./registerFormValidation";
-import Input from "@/components/input";
-import LoginTab from "@/components/loginTab";
+import { registerValidationSchema } from './registerFormValidation';
+import Input from '@/components/input';
+import LoginTab from '@/components/loginTab';
 
 const Register = () => {
   const formOptions = { resolver: yupResolver(registerValidationSchema) };
@@ -22,30 +22,15 @@ const Register = () => {
           className="flex flex-col gap-[20px] w-full mt-[27.78px]"
           onSubmit={handleSubmit((data) => console.log(data))}
         >
-          <Input
-            id="name"
-            placeholder="Imię *"
-            type="text"
-            errorMessage={errors.name?.message}
-          />
+          <Input id="name" placeholder="Imię *" type="text" errorMessage={errors.name?.message} />
           <Input
             id="surname"
             placeholder="Nazwisko *"
             type="text"
             errorMessage={errors.surname?.message}
           />
-          <Input
-            id="age"
-            placeholder="Wiek *"
-            type="number"
-            errorMessage={errors.age?.message}
-          />
-          <Input
-            id="mail"
-            placeholder="Email *"
-            type="email"
-            errorMessage={errors.mail?.message}
-          />
+          <Input id="age" placeholder="Wiek *" type="number" errorMessage={errors.age?.message} />
+          <Input id="mail" placeholder="Email *" type="email" errorMessage={errors.mail?.message} />
           <Input
             id="password"
             placeholder="Hasło *"

@@ -1,6 +1,6 @@
-import Logo from "/public/icons/GameCenterLogo.svg";
-import Link from "next/link";
-import { routes } from "@/constants/routes";
+import Logo from '/public/icons/GameCenterLogo.svg';
+import Link from 'next/link';
+import { routes } from '@/constants/routes';
 
 interface LoginTabProps {
   children: JSX.Element | JSX.Element[];

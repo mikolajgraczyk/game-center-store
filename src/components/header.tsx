@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Logo from "/public/icons/GameCenterLogo.svg";
-import { routes } from "@/constants/routes";
+import Link from 'next/link';
+import Logo from '/public/icons/GameCenterLogo.svg';
+import { routes } from '@/constants/routes';
 
 const Header = () => {
   return (
