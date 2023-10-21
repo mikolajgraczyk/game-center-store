@@ -1,0 +1,35 @@
+{
+  "form": {
+    "name": "Vorname *",
+    "surname": "Nachname *",
+    "age": "Alter *",
+    "email": "Email *",
+    "password": "Passwort *",
+    "passwordRepeat": "Passwort wiederholen *",
+    "logIn": "Anmelden",
+    "register": "Registrieren"
+  },
+  "formValidation": {
+    "emailRequired": "Email ist erforderlich.",
+    "emailIncorrect": "Ungültiges Email-Format.",
+    "passwordRequired": "Passwort ist erforderlich.",
+    "passwordRequirements": "Benötigt 8 Zeichen, einen Großbuchstaben, eine Zahl und ein Sonderzeichen.",
+    "passwordRepeat": "Passwort wiederholen.",
+    "passwordConfirmationFailure": "Passwörter müssen übereinstimmen.",
+    "minSymbolsRequired": "Mindestens 3 Zeichen erforderlich.",
+    "nameRequired": "Vorname ist erforderlich.",
+    "surnameRequired": "Nachname ist erforderlich.",
+    "ageRequired": "Alter ist erforderlich.",
+    "minAgeRequired": "Der Benutzer sollte mindestens 13 Jahre alt sein."
+  },
+  "header": {
+    "login/register": "Anmelden/Registrieren"
+  },
+  "homePage": {
+    "title": "Startseite"
+  },
+  "loginTab": {
+    "passwordForgot": "Passwort vergessen?",
+    "accountCreate": "Sie haben noch kein Konto? Registrieren Sie sich"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "form": {
+    "name": "Name *",
+    "surname": "Surname *",
+    "age": "Age *",
+    "email": "Email *",
+    "password": "Password *",
+    "passwordRepeat": "Repeat Password *",
+    "logIn": "Log In",
+    "register": "Register"
+  },
+  "formValidation": {
+    "emailRequired": "Email is required.",
+    "emailIncorrect": "Invalid email format.",
+    "passwordRequired": "Password is required.",
+    "passwordRequirements": "Requires 8 characters, one uppercase letter, one number, and one special character.",
+    "passwordRepeat": "Repeat password.",
+    "passwordConfirmationFailure": "Passwords must match.",
+    "minSymbolsRequired": "Minimum 3 characters required.",
+    "nameRequired": "Name is required.",
+    "surnameRequired": "Surname is required.",
+    "ageRequired": "Age is required.",
+    "minAgeRequired": "User should be at least 13 years old."
+  },
+  "header": {
+    "login/register": "Log In/Register"
+  },
+  "homePage": {
+    "title": "Home Page"
+  },
+  "loginTab": {
+    "passwordForgot": "Forgot your password?",
+    "accountCreate": "Don't have an account? Sign up"
+  }
+}
