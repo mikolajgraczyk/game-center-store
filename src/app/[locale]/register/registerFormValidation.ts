@@ -1,27 +1,26 @@
 import * as Yup from "yup";
 import { REGEXS } from "@/constants/regexs";
 
-export const registerValidationSchema = Yup.object().shape({
+export const setValidationSchema = (t) => {
+  const registerValidationSchema = Yup.object().shape({
     name: Yup.string()
-      .required("Imie jest wymagane")
-      .min(3, "Minimum 3 znaki."),
+      .required(t("nameRequired"))
+      .min(3, t("minSymbolsRequired")),
     surname: Yup.string()
-      .required("Nazwisko jest wymagane")
-      .min(3, "Minimum 3 znaki."),
+      .required(t("surnameRequired"))
+      .min(3, t("minSymbolsRequired")),
     age: Yup.number()
-      .typeError("Wiek jest wymagany")
+      .typeError(t("ageRequired"))
       .positive()
-      .min(13, "Użytkownik powinien mieć minimum 13 lat."),
-    mail: Yup.string()
-      .required("Email jest wymagany.")
-      .email("Niepoprawna forma Emaila."),
+      .min(13, t("minAgeRequired")),
+    mail: Yup.string().required(t("emailRequired")).email(t("emailIncorrect")),
     password: Yup.string()
-      .required("Hasło jest wymagane.")
-      .matches(
-        REGEXS.password,
-        "Minimum 8 znaków, jedna duża litera, jedna cyfra i jeden znak specjalny."
-      ),
+      .required(t("passwordRequired"))
+      .matches(REGEXS.password, t("passwordRequirements")),
     passwordConfirmation: Yup.string()
-      .required("Powtórz hasło")
-      .oneOf([Yup.ref("password")], "Hasła muszą być takie same"),
+      .required(t("passwordRepeat"))
+      .oneOf([Yup.ref("password")], t("passwordConfirmationFailure")),
   });
+
+  return registerValidationSchema;
+};

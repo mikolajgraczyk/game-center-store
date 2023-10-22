@@ -1,15 +1,13 @@
 {
   "form": {
-    "name": "Imię *",
-    "surname": "Nazwisko *",
-    "age": "Wiek *",
-    "email": "Email *",
-    "password": "Hasło *",
-    "passwordRepeat": "Powtórz hasło *",
+    "namePlaceholder": "Imię *",
+    "surnamePlaceholder": "Nazwisko *",
+    "agePlaceholder": "Wiek *",
+    "emailPlaceholder": "Email *",
+    "passwordPlaceholder": "Hasło *",
+    "passwordRepeatPlaceholder": "Powtórz hasło *",
     "logIn": "Zaloguj się",
-    "register": "Zarejestruj się"
-  },
-  "formValidation": {
+    "register": "Zarejestruj się",
     "emailRequired": "Email jest wymagany.",
     "emailIncorrect": "Niepoprawna forma Emaila.",
     "passwordRequired": "Hasło jest wymagane.",

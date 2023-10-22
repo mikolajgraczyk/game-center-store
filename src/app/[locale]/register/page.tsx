@@ -2,7 +2,7 @@
 
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerValidationSchema } from "./registerFormValidation";
+import { setValidationSchema } from "./registerFormValidation";
 import Input from "@/components/input";
 import LoginTab from "@/components/loginTab";
 import { useTranslations } from "next-intl";
@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 const Register = () => {
   const t = useTranslations("form");
 
+  const registerValidationSchema = setValidationSchema(t);
   const formOptions = { resolver: yupResolver(registerValidationSchema) };
   const methods = useForm(formOptions);
   const {
@@ -26,37 +27,37 @@ const Register = () => {
         >
           <Input
             id="name"
-            placeholder={t("name")}
+            placeholder={t("namePlaceholder")}
             type="text"
             errorMessage={errors.name?.message}
           />
           <Input
             id="surname"
-            placeholder={t("surname")}
+            placeholder={t("surnamePlaceholder")}
             type="text"
             errorMessage={errors.surname?.message}
           />
           <Input
             id="age"
-            placeholder={t("age")}
+            placeholder={t("agePlaceholder")}
             type="number"
             errorMessage={errors.age?.message}
           />
           <Input
             id="mail"
-            placeholder={t("email")}
+            placeholder={t("emailPlaceholder")}
             type="email"
             errorMessage={errors.mail?.message}
           />
           <Input
             id="password"
-            placeholder={t("password")}
+            placeholder={t("passwordPlaceholder")}
             type="password"
             errorMessage={errors.password?.message}
           />
           <Input
             id="passwordConfirmation"
-            placeholder={t("passwordRepeat")}
+            placeholder={t("passwordRepeatPlaceholder")}
             type="password"
             errorMessage={errors.passwordConfirmation?.message}
           />

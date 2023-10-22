@@ -1,15 +1,13 @@
 {
   "form": {
-    "name": "Name *",
-    "surname": "Surname *",
-    "age": "Age *",
-    "email": "Email *",
-    "password": "Password *",
-    "passwordRepeat": "Repeat Password *",
+    "namePlaceholder": "Name *",
+    "surnamePlaceholder": "Surname *",
+    "agePlaceholder": "Age *",
+    "emailPlaceholder": "Email *",
+    "passwordPlaceholder": "Password *",
+    "passwordRepeatPlaceholder": "Repeat Password *",
     "logIn": "Log In",
-    "register": "Register"
-  },
-  "formValidation": {
+    "register": "Register",
     "emailRequired": "Email is required.",
     "emailIncorrect": "Invalid email format.",
     "passwordRequired": "Password is required.",
