@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import Header from "../../components/header";
+import LanguageSwitcher from "@/components/languageSwitcher";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -44,6 +45,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
+          <LanguageSwitcher locales={locales} />
           {children}
         </NextIntlClientProvider>
       </body>

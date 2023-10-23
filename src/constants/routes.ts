@@ -1,5 +1,5 @@
-export const routes = {
-    login: "/login",
-    register: "/register",
-    homePage: "/homePage",
-  };
+export const ROUTES = {
+  login: "/login",
+  register: "/register",
+  homePage: "/homePage",
+};

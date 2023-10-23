@@ -1,6 +1,6 @@
 import Logo from "/public/icons/GameCenterLogo.svg";
 import Link from "next/link";
-import { routes } from "@/constants/routes";
+import { ROUTES } from "@/constants/routes";
 import { useTranslations } from "next-intl";
 
 interface LoginTabProps {
@@ -16,7 +16,7 @@ const LoginTab: React.FC<LoginTabProps> = ({ children }) => {
       {children}
       <div className="flex text-[12px] justify-between text-buttons-accountAccess font-normal w-full underline text-center">
         <Link href="">{t("passwordForgot")}</Link>
-        <Link href={routes.register}>{t("accountCreate")}</Link>
+        <Link href={ROUTES.register}>{t("accountCreate")}</Link>
       </div>
     </div>
   );

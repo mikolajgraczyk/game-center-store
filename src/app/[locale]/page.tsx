@@ -1,10 +1,10 @@
 import { redirect } from "next/navigation";
-import { routes } from "@/constants/routes";
+import { ROUTES } from "@/constants/routes";
 
 interface IHome {
   params: { locale: string };
 }
 
 export default function Home({ params: { locale } }: IHome) {
-  redirect(`${locale}/${routes.homePage}`);
+  redirect(`${locale}/${ROUTES.homePage}`);
 }
