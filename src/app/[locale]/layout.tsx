@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import Header from "../../components/header";
+import { unstable_setRequestLocale } from "next-intl/server";
 import LanguageSwitcher from "@/components/languageSwitcher";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 const locales = ["pl", "en", "de"];
 
 export function generateStaticParams() {
-  return [{ locale: "pl" }, { locale: "en" }, { locale: "de" }];
+  return locales.map((locale) => ({ locale }));
 }
 
 export default async function RootLayout({
@@ -37,6 +38,8 @@ export default async function RootLayout({
 
   const isValidLocale = locales.some((cur) => cur === locale);
   if (!isValidLocale) notFound();
+
+  unstable_setRequestLocale(locale);
 
   return (
     <html lang={locale}>
