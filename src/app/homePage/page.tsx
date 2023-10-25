@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 const HomePage = async () => {
   return <p>Home Page</p>;
