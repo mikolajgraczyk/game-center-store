@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import Header from "../../components/header";
 import { unstable_setRequestLocale } from "next-intl/server";
-import LanguageSwitcher from "@/components/languageSwitcher";
+import { i18n } from "@/i18n/i18n";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -19,10 +19,8 @@ export const metadata: Metadata = {
   description: "Game Center Website",
 };
 
-const locales = ["pl", "en", "de"];
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
 export default async function RootLayout({
@@ -36,8 +34,8 @@ export default async function RootLayout({
     notFound();
   }
 
-  const isValidLocale = locales.some((cur) => cur === locale);
-  if (!isValidLocale) notFound();
+  // const isValidLocale = i18n.locales.some((cur) => cur === locale);
+  // if (!isValidLocale) notFound();
 
   unstable_setRequestLocale(locale);
 
@@ -48,7 +46,6 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
-          <LanguageSwitcher locales={locales} />
           {children}
         </NextIntlClientProvider>
       </body>
