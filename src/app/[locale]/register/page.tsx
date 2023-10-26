@@ -2,7 +2,7 @@
 
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { setValidationSchema } from "./registerFormValidation";
+import { useValidationSchema } from "../../../hooks/useValidation";
 import Input from "@/components/input";
 import LoginTab from "@/components/loginTab";
 import { useTranslations } from "next-intl";
@@ -10,8 +10,8 @@ import { useTranslations } from "next-intl";
 const Register = () => {
   const t = useTranslations("form");
 
-  const registerValidationSchema = setValidationSchema(t);
-  const formOptions = { resolver: yupResolver(registerValidationSchema) };
+  const validationSchema = useValidationSchema();
+  const formOptions = { resolver: yupResolver(validationSchema) };
   const methods = useForm(formOptions);
   const {
     handleSubmit,

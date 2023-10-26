@@ -1,8 +1,11 @@
 import * as Yup from "yup";
 import { REGEXS } from "@/constants/regexs";
+import { useTranslations } from "next-intl";
 
-export const setValidationSchema = (t) => {
-  const registerValidationSchema = Yup.object().shape({
+export const useValidationSchema = () => {
+  const t = useTranslations("form");
+
+  const validationSchema = Yup.object().shape({
     name: Yup.string()
       .required(t("nameRequired"))
       .min(3, t("minSymbolsRequired")),
@@ -22,5 +25,5 @@ export const setValidationSchema = (t) => {
       .oneOf([Yup.ref("password")], t("passwordConfirmationFailure")),
   });
 
-  return registerValidationSchema;
+  return validationSchema;
 };

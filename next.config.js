@@ -9,9 +9,6 @@ const nextConfig = {
   },
 };
 
-const withNextIntl = require("next-intl/plugin")(
-  // To jest domyślna lokalizacja (również obsługiwany jest folder `src` na starcie)
-  "src/i18n.ts"
-);
+const withNextIntl = require("next-intl/plugin")("src/i18n.ts");
 
 module.exports = withNextIntl(nextConfig);

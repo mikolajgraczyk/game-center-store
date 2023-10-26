@@ -2,7 +2,7 @@
 
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { setValidationSchema } from "./loginValidationSchema";
+import { useValidationSchema } from "../../../hooks/useValidation";
 import Input from "@/components/input";
 import FacebookLogo from "/public/icons/FacebookLogo.svg";
 import GoogleLogo from "/public/icons/GoogleLogo.svg";
@@ -12,8 +12,8 @@ import { useTranslations } from "next-intl";
 const Login = () => {
   const t = useTranslations("form");
 
-  const loginValidationSchema = setValidationSchema(t);
-  const formOptions = { resolver: yupResolver(loginValidationSchema) };
+  const validationSchema = useValidationSchema();
+  const formOptions = { resolver: yupResolver(validationSchema) };
   const methods = useForm(formOptions);
   const {
     handleSubmit,
