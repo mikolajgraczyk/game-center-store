@@ -2,14 +2,18 @@
 
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { loginValidationSchema } from './loginregisterValidationSchema';
+import { useValidationSchema } from '@/hooks/useValidation';
 import Input from '@/components/input';
 import FacebookLogo from '/public/icons/FacebookLogo.svg';
 import GoogleLogo from '/public/icons/GoogleLogo.svg';
 import LoginTab from '@/components/loginTab';
+import { useTranslations } from 'next-intl';
 
 const Login = () => {
-  const formOptions = { resolver: yupResolver(loginValidationSchema) };
+  const validationSchema = useValidationSchema();
+  const t = useTranslations("form");
+
+  const formOptions = { resolver: yupResolver(validationSchema) };
   const methods = useForm(formOptions);
   const {
     handleSubmit,
@@ -23,15 +27,15 @@ const Login = () => {
           className="flex flex-col gap-[20px] w-full mt-[27.78px]"
           onSubmit={handleSubmit((data) => console.log(data))}
         >
-          <Input id="mail" placeholder="Email *" type="email" errorMessage={errors.mail?.message} />
+          <Input id="mail" placeholder={t("Email *")} type="email" errorMessage={errors.mail?.message} />
           <Input
             id="password"
-            placeholder="Hasło *"
+            placeholder={t("Password *")}
             type="password"
             errorMessage={errors.password?.message}
           />
           <button className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login">
-            Zaloguj się
+            {t("Log In")}
           </button>
         </form>
       </FormProvider>

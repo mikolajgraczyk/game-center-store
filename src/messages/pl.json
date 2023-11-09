@@ -1,8 +1,33 @@
 {
-  "HomePage": {
+  "homePage": {
     "Home Page": "Strona Główna"
   },
-  "Header": {
+  "header": {
     "Login/Register": "Zaloguj się/Zarejestruj się"
+  },
+  "form": {
+    "Name *": "Imie *",
+    "Surname *": "Nazwisko *",
+    "Age *": "Wiek *",
+    "Email *": "Email *",
+    "Password *": "Hasło *",
+    "Repeat Password *": "Powtórz hasło *",
+    "Log In": "Zaloguj się",
+    "Register": "Zarejestruj się",
+    "Email is required": "Email jest wymagany",
+    "Invalid email format": "Niepoprawna forma emaila",
+    "Password is required": "Hasło jest wymagane",
+    "Requires 8 characters, one uppercase letter, one number, and one special character": "Hasło musi mieć co najmniej 8 znakó, jedną dużą literę, jedną cyfrę i jeden znak specjalny",
+    "Repeat password": "Powtórz hasło",
+    "Passwords must match": "Hasła nie są takie same",
+    "Minimum 3 characters required": "Wymagane minimum 3 znaki",
+    "Name is required": "Imie jest wymagane",
+    "Surname is required": "Nazwisko jest wymagane",
+    "Age is required": "Wiek jest wymagany",
+    "User should be at least 13 years old": "Użytkownik powinien mieć co najmniej 13 lat"
+  },
+  "loginTab": {
+    "Forgot your password?": "Zapomniałeś hasła?",
+    "Don't have an account? Sign up": "Nie masz konta? Zarejestruj się"
   }
 }
