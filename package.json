@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/mongoose": "5.11.97",
     "@hookform/resolvers": "3.3.1",
+    "@types/mongoose": "5.11.97",
     "@types/node": "20.6.2",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
@@ -20,6 +20,7 @@
     "mongodb": "3.7.4",
     "mongoose": "7.6.1",
     "next": "13.4.19",
+    "next-intl": "^3.0.0-beta.19",
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
