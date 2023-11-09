@@ -1,5 +1,5 @@
-import React from "react";
-import { useFormContext } from "react-hook-form";
+import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -21,7 +21,7 @@ const Input: React.FC<InputProps> = ({ id, errorMessage, ...inputProps }) => {
           {errorMessage}
         </span>
       ) : (
-        ""
+        ''
       )}
     </div>
   );

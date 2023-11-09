@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
@@ -14,7 +14,7 @@ const gameSchema = new Schema(
     },
     discount: {
       type: Number,
-      required: true,
+      required: false,
     },
     id: {
       type: String || Number,
@@ -25,7 +25,7 @@ const gameSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-export default mongoose.models.Game || mongoose.model("Game", gameSchema);
+export default mongoose.models.Game || mongoose.model('Game', gameSchema);
