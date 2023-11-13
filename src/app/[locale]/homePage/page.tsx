@@ -5,6 +5,7 @@ import { fetchGames } from "@/scripts/fetchGames";
 
 const HomePage = () => {
   const [games, setGames] = useState([]);
+  
   const t = useTranslations("HomePage");
 
   useEffect(() => {
