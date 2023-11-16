@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
 import connect from '@/libs/db';
-import Game from "../../../../models/game";
+import Game from '@/../../models/game';
 
 export const GET = async () => {
   try {

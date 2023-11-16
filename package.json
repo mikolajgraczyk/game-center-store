@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "3.3.1",
+    "@tanstack/react-query": "^5.8.4",
+    "@tanstack/react-query-devtools": "^5.8.4",
     "@types/mongoose": "5.11.97",
     "@types/node": "20.6.2",
     "@types/react": "18.2.22",
