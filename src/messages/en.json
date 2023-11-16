@@ -1,8 +1,33 @@
 {
-  "HomePage": {
+  "homePage": {
     "Home Page": "Home Page"
   },
-  "Header": {
+  "header": {
     "Login/Register": "Login/Register"
+  },
+  "form": {
+    "Name *": "Name *",
+    "Surname *": "Surname *",
+    "Age *": "Age *",
+    "Email *": "Email *",
+    "Password *": "Password *",
+    "Repeat Password *": "Repeat Password *",
+    "Log In": "Log In",
+    "Register": "Register",
+    "Email is required": "Email is required",
+    "Invalid email format": "Invalid email format",
+    "Password is required": "Password is required",
+    "Requires 8 characters, one uppercase letter, one number, and one special character": "Requires 8 characters, one uppercase letter, one number, and one special character",
+    "Repeat password": "Repeat password",
+    "Passwords must match": "Passwords must match",
+    "Minimum 3 characters required": "Minimum 3 characters required",
+    "Name is required": "Name is required",
+    "Surname is required": "Surname is required",
+    "Age is required": "Age is required",
+    "User should be at least 13 years old": "User should be at least 13 years old"
+  },
+  "loginTab": {
+    "Forgot your password?": "Forgot your password?",
+    "Don't have an account? Sign up": "Don't have an account? Sign up"
   }
 }
