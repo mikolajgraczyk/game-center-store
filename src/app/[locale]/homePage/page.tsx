@@ -5,7 +5,7 @@ import { fetchGames } from '@/scripts/fetchGames';
 import { queryKeys } from '@/constants/queryKeys';
 
 const HomePage = () => {
-  const t = useTranslations('HomePage');
+  const t = useTranslations('homePage');
 
   const { isLoading, isError, data } = useQuery({
     queryKey: queryKeys.fetchGames,
