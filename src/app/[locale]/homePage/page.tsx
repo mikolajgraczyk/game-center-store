@@ -2,11 +2,15 @@
 import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
 import { fetchGames } from '@/scripts/fetchGames';
+import { queryKeys } from '@/constants/queryKeys';
 
 const HomePage = () => {
   const t = useTranslations('HomePage');
 
-  const { isLoading, isError, data } = useQuery({ queryKey: ['games'], queryFn: fetchGames });
+  const { isLoading, isError, data } = useQuery({
+    queryKey: queryKeys.fetchGames,
+    queryFn: fetchGames,
+  });
 
   if (isLoading) console.log('Ładowanie');
   if (data) console.log(data);
