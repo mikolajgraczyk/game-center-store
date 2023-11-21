@@ -1,8 +1,8 @@
-import { NextIntlClientProvider } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from 'next-intl';
+import { unstable_setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
-const locales = ["en", "pl"];
+const locales = ['en', 'pl'];
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
