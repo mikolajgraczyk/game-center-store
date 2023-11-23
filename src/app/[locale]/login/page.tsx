@@ -11,7 +11,7 @@ import { useTranslations } from 'next-intl';
 
 const Login = () => {
   const validationSchema = useValidationSchema();
-  const t = useTranslations("form");
+  const t = useTranslations('form');
 
   const formOptions = { resolver: yupResolver(validationSchema) };
   const methods = useForm(formOptions);
@@ -21,33 +21,40 @@ const Login = () => {
   } = methods;
 
   return (
-    <LoginTab>
-      <FormProvider {...methods}>
-        <form
-          className="flex flex-col gap-[20px] w-full mt-[27.78px]"
-          onSubmit={handleSubmit((data) => console.log(data))}
-        >
-          <Input id="mail" placeholder={t("Email *")} type="email" errorMessage={errors.mail?.message} />
-          <Input
-            id="password"
-            placeholder={t("Password *")}
-            type="password"
-            errorMessage={errors.password?.message}
-          />
-          <button className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login">
-            {t("Log In")}
+    <main className="flex items-center justify-center h-[calc(100%-120px)]">
+      <LoginTab>
+        <FormProvider {...methods}>
+          <form
+            className="flex flex-col gap-[20px] w-full mt-[27.78px]"
+            onSubmit={handleSubmit((data) => console.log(data))}
+          >
+            <Input
+              id="mail"
+              placeholder={t('Email *')}
+              type="email"
+              errorMessage={errors.mail?.message}
+            />
+            <Input
+              id="password"
+              placeholder={t('Password *')}
+              type="password"
+              errorMessage={errors.password?.message}
+            />
+            <button className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login">
+              {t('Log In')}
+            </button>
+          </form>
+        </FormProvider>
+        <div className="flex gap-[15px]">
+          <button className="bg-backgrounds-socialButton p-[5px] rounded-full">
+            <FacebookLogo />
           </button>
-        </form>
-      </FormProvider>
-      <div className="flex gap-[15px]">
-        <button className="bg-backgrounds-socialButton p-[5px] rounded-full">
-          <FacebookLogo />
-        </button>
-        <button className="bg-backgrounds-socialButton p-[5px] rounded-full">
-          <GoogleLogo />
-        </button>
-      </div>
-    </LoginTab>
+          <button className="bg-backgrounds-socialButton p-[5px] rounded-full">
+            <GoogleLogo />
+          </button>
+        </div>
+      </LoginTab>
+    </main>
   );
 };
 
