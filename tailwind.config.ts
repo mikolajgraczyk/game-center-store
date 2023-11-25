@@ -7,6 +7,9 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      mobile: { max: '686px' },
+    },
     colors: {
       inputs: {
         placeholder: '#8D8D8D',

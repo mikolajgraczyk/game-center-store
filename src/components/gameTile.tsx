@@ -5,7 +5,7 @@ const GameTile = ({ game }: { game: Game }) => {
   const price = game.discount ? calculatePrice(game.discount, game.price) : game.price;
 
   return (
-    <div className="flex-col space-y-[10px] mt-[20px] max-w-[200px]">
+    <div className="flex-col space-y-[10px] mt-[20px] max-w-[200px] mobile:mx-auto">
       <img src={game.cover_photo} alt="Game poster" className="w-[200px] h-[265px] object-cover" />
       <span className="text-texts-gameName block text-[14px]">{game.name}</span>
       {game.discount ? (
