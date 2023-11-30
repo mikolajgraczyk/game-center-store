@@ -1,8 +1,8 @@
-import { Game } from '@/constants/types';
-import { calculatePrice } from '@/scripts/calculatePrice';
 import Image from 'next/image';
+import { Game } from '@/constants/types';
+import calculatePrice from '@/scripts/calculatePrice';
 
-const GameTile = ({ game }: { game: Game }) => {
+function GameTile({ game }: { game: Game }) {
   const { cover_photo, name, discount, price } = game;
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
@@ -31,6 +31,6 @@ const GameTile = ({ game }: { game: Game }) => {
       )}
     </div>
   );
-};
+}
 
 export default GameTile;

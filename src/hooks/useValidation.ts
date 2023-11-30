@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import * as Yup from 'yup';
-import { REGEXS } from '@/constants/regexs';
+import REGEXS from '@/constants/regexs';
 
 const useValidationSchema = () => {
   const t = useTranslations('form');

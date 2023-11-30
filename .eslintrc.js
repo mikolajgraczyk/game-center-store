@@ -12,6 +12,8 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
         'react/prop-types': 'off',
         'react/require-default-props': 'off',
+        camelcase: 'off',
+        'no-underscore-dangle': 'off',
       },
     },
   ],
@@ -21,6 +23,7 @@ module.exports = {
         map: [
           ['@', './src'],
           ['@icons', './public/icons'],
+          ['@models', './models'],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },

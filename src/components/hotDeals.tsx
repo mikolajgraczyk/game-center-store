@@ -1,13 +1,13 @@
-import { Game } from '@/constants/types';
-import { useQuery } from '@tanstack/react-query';
-import { fetchGames } from '@/scripts/fetchGames';
-import { queryKeys } from '@/constants/queryKeys';
-import { createNumberArray } from '@/scripts/arrayMethods';
 import { useTranslations } from 'next-intl';
+import { useQuery } from '@tanstack/react-query';
+import { Game } from '@/constants/types';
+import fetchGames from '@/scripts/fetchGames';
+import queryKeys from '@/constants/queryKeys';
+import createNumberArray from '@/scripts/arrayMethods';
 import GameTile from '@/components/gameTile';
 import GameTileSkeleton from '@/components/gameTileSkeleton';
 
-const Wrapper = ({ children }: { children?: React.ReactNode }) => {
+function Wrapper({ children }: { children?: React.ReactNode }) {
   const t = useTranslations('hotDeals');
 
   return (
@@ -18,9 +18,9 @@ const Wrapper = ({ children }: { children?: React.ReactNode }) => {
       </div>
     </>
   );
-};
+}
 
-const HotDeals = () => {
+function HotDeals() {
   const t = useTranslations();
 
   const { isLoading, isError, data } = useQuery({
@@ -68,6 +68,6 @@ const HotDeals = () => {
       )}
     </Wrapper>
   );
-};
+}
 
 export default HotDeals;

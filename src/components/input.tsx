@@ -6,7 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
 }
 
-const Input: React.FC<InputProps> = ({ id, errorMessage, ...inputProps }) => {
+function Input({ id, errorMessage, ...inputProps }: InputProps) {
   const { register } = useFormContext();
 
   return (
@@ -25,6 +25,6 @@ const Input: React.FC<InputProps> = ({ id, errorMessage, ...inputProps }) => {
       )}
     </div>
   );
-};
+}
 
 export default Input;
