@@ -1,7 +1,8 @@
 {
   "hotDeals": {
     "Hot deals": "Hot deals",
-    "An error occurred": "An error occurred"
+    "An error occurred": "An error occurred",
+    "No games available": "No games available"
   },
   "header": {
     "Login/Register": "Login/Register"

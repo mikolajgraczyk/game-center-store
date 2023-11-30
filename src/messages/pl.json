@@ -1,7 +1,8 @@
 {
   "hotDeals": {
     "Hot deals": "Najgorętsze okazje",
-    "An error occurred": "Wystąpił błąd"
+    "An error occurred": "Wystąpił błąd",
+    "No games available": "Brak dostępnych gier"
   },
   "header": {
     "Login/Register": "Zaloguj się/Zarejestruj się"

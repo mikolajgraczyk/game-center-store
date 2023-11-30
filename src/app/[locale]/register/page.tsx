@@ -1,16 +1,17 @@
 'use client';
+
+import { useTranslations } from 'next-intl';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useValidationSchema } from '@/hooks/useValidation';
+import useValidationSchema from '@/hooks/useValidation';
 import Input from '@/components/input';
 import LoginTab from '@/components/loginTab';
-import { useTranslations } from 'next-intl';
 
-const Register = () => {
+function Register() {
   const t = useTranslations('form');
 
-  const validationSchema = useValidationSchema();
-  const formOptions = { resolver: yupResolver(validationSchema) };
+  const { registerValidationSchema } = useValidationSchema();
+  const formOptions = { resolver: yupResolver(registerValidationSchema) };
 
   const methods = useForm(formOptions);
   const {
@@ -24,7 +25,7 @@ const Register = () => {
         <FormProvider {...methods}>
           <form
             className="flex flex-col gap-[20px] w-full mt-[27.78px]"
-            onSubmit={handleSubmit((data) => console.log(data))}
+            onSubmit={handleSubmit((data) => alert(JSON.stringify(data)))}
           >
             <Input
               id="name"
@@ -62,7 +63,10 @@ const Register = () => {
               type="password"
               errorMessage={errors.passwordConfirmation?.message}
             />
-            <button className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login">
+            <button
+              type="submit"
+              className="bg-backgrounds-loginButton text-center py-[10px] rounded-[5px] text-buttons-login"
+            >
               {t('Register')}
             </button>
           </form>
@@ -70,6 +74,6 @@ const Register = () => {
       </LoginTab>
     </main>
   );
-};
+}
 
 export default Register;

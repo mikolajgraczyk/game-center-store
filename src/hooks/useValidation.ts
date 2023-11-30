@@ -1,11 +1,11 @@
+import { useTranslations } from 'next-intl';
 import * as Yup from 'yup';
 import { REGEXS } from '@/constants/regexs';
-import { useTranslations } from 'next-intl';
 
-export const useValidationSchema = () => {
+const useValidationSchema = () => {
   const t = useTranslations('form');
 
-  const validationSchema = Yup.object().shape({
+  const registerValidationSchema = Yup.object().shape({
     name: Yup.string().required(t('Name is required')).min(3, t('Minimum 3 characters required')),
     surname: Yup.string()
       .required(t('Surname is required'))
@@ -26,5 +26,17 @@ export const useValidationSchema = () => {
       .oneOf([Yup.ref('password')], t('Passwords must match')),
   });
 
-  return validationSchema;
+  const loginValidationSchema = Yup.object().shape({
+    mail: Yup.string().required(t('Email is required')).email(t('Invalid email format')),
+    password: Yup.string()
+      .required(t('Password is required'))
+      .matches(
+        REGEXS.password,
+        t('Requires 8 characters, one uppercase letter, one number, and one special character'),
+      ),
+  });
+
+  return { registerValidationSchema, loginValidationSchema };
 };
+
+export default useValidationSchema;
