@@ -33,6 +33,7 @@ const config: Config = {
         gameName: '#FFFFFF',
         gamePrice: '#FFFFFF',
         gameOldPrice: '#C2C2C2',
+        anErrorOccurred: '#960018',
       },
     },
     extend: {

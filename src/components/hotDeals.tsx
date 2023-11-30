@@ -8,7 +8,7 @@ import GameTile from '@/components/gameTile';
 import GameTileSkeleton from '@/components/gameTileSkeleton';
 
 const HotDeals = () => {
-  const t = useTranslations('homePage');
+  const t = useTranslations('hotDeals');
 
   const { isLoading, isError, data } = useQuery({
     queryKey: queryKeys.fetchGames,
@@ -35,12 +35,14 @@ const HotDeals = () => {
             ))}
           </>
         )}
-        {isError && (
-          <>
-            <span>ERROR</span>
-          </>
-        )}
       </div>
+      {isError && (
+        <div className="mt-[25%] text-center">
+          <span className="text-[32px] font-[700] text-texts-anErrorOccurred">
+            {t('An error occurred')}
+          </span>
+        </div>
+      )}
     </>
   );
 };
