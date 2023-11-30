@@ -21,14 +21,12 @@ const Wrapper = ({ children }: { children?: React.ReactNode }) => {
 };
 
 const HotDeals = () => {
-  const t = useTranslations('hotDeals');
+  const t = useTranslations();
 
-  const { isLoading, isError } = useQuery({
+  const { isLoading, isError, data } = useQuery({
     queryKey: queryKeys.fetchGames,
     queryFn: fetchGames,
   });
-
-  const data: any = [];
 
   if (isLoading) {
     return (
@@ -46,7 +44,7 @@ const HotDeals = () => {
         <Wrapper />
         <div className="mt-[25%] text-center">
           <span className="text-[32px] font-[700] text-texts-anErrorOccurred">
-            {t('An error occurred')}
+            {t('errors.An error occurred')}
           </span>
         </div>
       </>
@@ -65,7 +63,7 @@ const HotDeals = () => {
         </>
       ) : (
         <span className="text-[20px] font-[700] text-texts-hotDeals">
-          {t('No games available')}
+          {t('hotDeals:No games available')}
         </span>
       )}
     </Wrapper>
