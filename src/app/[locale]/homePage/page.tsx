@@ -9,7 +9,7 @@ const HomePage = () => {
 
   const { isLoading, isError, data } = useQuery({
     queryKey: queryKeys.fetchGames,
-    queryFn: fetchGames,
+    queryFn: () => fetchGames(),
   });
 
   if (isLoading) console.log('Ładowanie');
