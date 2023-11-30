@@ -2,7 +2,7 @@ import { Game } from '@/constants/types';
 import { useQuery } from '@tanstack/react-query';
 import { fetchGames } from '@/scripts/fetchGames';
 import { queryKeys } from '@/constants/queryKeys';
-import { createNumberArray } from '@/utils/arrayMethods';
+import { createNumberArray } from '@/scripts/arrayMethods';
 import { useTranslations } from 'next-intl';
 import GameTile from '@/components/gameTile';
 import GameTileSkeleton from '@/components/gameTileSkeleton';
