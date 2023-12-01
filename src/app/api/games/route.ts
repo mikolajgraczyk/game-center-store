@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server';
-import Game from '../../../../models/game';
+import Game from '@models/game';
 import connect from '@/libs/db';
 
 export const GET = async () => {
