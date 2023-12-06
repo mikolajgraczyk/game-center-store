@@ -16,6 +16,10 @@ const gameSchema = new Schema(
       type: Number,
       required: false,
     },
+    _id: {
+      type: String || Number,
+      required: true,
+    },
     cover_photo: {
       type: String,
       required: true,
