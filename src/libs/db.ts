@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { ConnectOptions } from 'mongoose';
 
 const connect = async () => {
   try {
@@ -9,7 +9,6 @@ const connect = async () => {
         useUnifiedTopology: true,
       } as ConnectOptions,
     );
-    console.log('mongo connection successful');
   } catch (error) {
     throw new Error('Error in connectiong to mongodb');
   }
