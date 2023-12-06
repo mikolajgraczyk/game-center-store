@@ -1,20 +1,22 @@
-import { useLocale } from 'next-intl';
 import { ChangeEvent } from 'react';
 
 function Select({
   options,
-  handleSelect,
+  onChange,
+  defaultValue,
 }: {
-  options: string[];
-  handleSelect: ({ target }: ChangeEvent<HTMLSelectElement>) => void;
+  options: {
+    key: string;
+    value: string;
+  }[];
+  onChange: ({ target }: ChangeEvent<HTMLSelectElement>) => void;
+  defaultValue: string;
 }) {
-  const locale = useLocale();
-
   return (
-    <select defaultValue={locale} onChange={handleSelect} className="text-backgrounds-main">
+    <select defaultValue={defaultValue} onChange={onChange} className="text-backgrounds-main">
       {options.map((option) => (
-        <option key={option} value={option}>
-          {option}
+        <option key={option.key} value={option.value}>
+          {option.value}
         </option>
       ))}
     </select>

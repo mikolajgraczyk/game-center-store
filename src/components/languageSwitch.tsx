@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from 'next-intl';
 import { ChangeEvent } from 'react';
 import { useRouter, usePathname } from 'next-intl/client';
 import { useTransition } from 'react';
@@ -10,6 +11,14 @@ function LanguageSwitch() {
 
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
+
+  const localesOptions = LOCALES.map((option) => {
+    return {
+      key: option,
+      value: option,
+    };
+  });
 
   const handleSelect = ({ target }: ChangeEvent<HTMLSelectElement>) => {
     const lang = target.value;
@@ -18,7 +27,7 @@ function LanguageSwitch() {
     });
   };
 
-  return <Select options={LOCALES} handleSelect={handleSelect} />;
+  return <Select options={localesOptions} onChange={handleSelect} defaultValue={locale} />;
 }
 
 export default LanguageSwitch;
