@@ -19,6 +19,8 @@ function GameTile({ game }: { game: Game }) {
         width={200}
         height={265}
         className="w-[200px] h-[265px] object-cover"
+        priority
+        unoptimized
       />
       <span className="text-texts-gameName block text-[14px]">{name}</span>
       {discount ? (
