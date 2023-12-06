@@ -16,13 +16,54 @@ const gameSchema = new Schema(
       type: Number,
       required: false,
     },
-    _id: {
-      type: String || Number,
-      required: true,
-    },
     cover_photo: {
       type: String,
       required: true,
+    },
+    variant: {
+      type: String,
+      enum: ['BASE GAME', 'DLC', 'DEMO'],
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    genres: {
+      type: [String],
+      validate: (v: []) => Array.isArray(v) && v.length > 0,
+    },
+    features: {
+      type: [String],
+      validate: (v: []) => Array.isArray(v) && v.length > 0,
+    },
+    details: {
+      type: {
+        dev: { type: String, required: true },
+        publisher: { type: String, required: true },
+        releaseDate: { type: Date, required: true },
+        platforms: {
+          type: [{ type: String, enum: ['windows', 'mac'] }],
+          validate: (v: []) => Array.isArray(v) && v.length > 0,
+        },
+      },
+      required: true,
+    },
+    reviews: {
+      type: [
+        {
+          user: { type: String, required: true },
+          score: { type: Number, min: 1, max: 5, required: true },
+        },
+      ],
+      validate: (v: []) => Array.isArray(v) && v.length > 0,
+    },
+    highlightedFeatures: {
+      type: [
+        {
+          type: String,
+        },
+      ],
     },
   },
   { timestamps: true },

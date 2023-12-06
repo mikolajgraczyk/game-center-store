@@ -29,5 +29,16 @@
   "loginTab": {
     "Forgot your password?": "Forgot your password?",
     "Don't have an account? Sign up": "Don't have an account? Sign up"
+  },
+  "gamePage": {
+    "Genres": "Genres",
+    "Features": "Features",
+    "BUY NOW": "BUY NOW",
+    "ADD TO CART": "ADD TO CART",
+    "ADD TO WISHLIST": "ADD TO WISHLIST",
+    "Developer": "Developer",
+    "Publisher": "Publisher",
+    "Release Date": "Release Date",
+    "Platform": "Platform"
   }
 }
