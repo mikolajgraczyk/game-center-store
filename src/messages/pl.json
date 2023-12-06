@@ -9,6 +9,9 @@
   "header": {
     "Login/Register": "Zaloguj się/Zarejestruj się"
   },
+  "gameTile": {
+    "Game Poster": "Plakat gry"
+  },
   "form": {
     "Name *": "Imie *",
     "Surname *": "Nazwisko *",

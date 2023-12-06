@@ -1,8 +1,11 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { Game } from '@/constants/types';
 import calculatePrice from '@/scripts/calculatePrice';
 
 function GameTile({ game }: { game: Game }) {
+  const t = useTranslations('gameTile');
+
   const { cover_photo, name, discount, price } = game;
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
@@ -12,7 +15,7 @@ function GameTile({ game }: { game: Game }) {
       <Image
         loader={() => cover_photo}
         src={cover_photo}
-        alt="Game poster"
+        alt={t('Game Poster')}
         width={200}
         height={265}
         className="w-[200px] h-[265px] object-cover"

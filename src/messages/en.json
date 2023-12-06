@@ -9,6 +9,9 @@
   "header": {
     "Login/Register": "Login/Register"
   },
+  "gameTile": {
+    "Game Poster": "Game Poster"
+  },
   "form": {
     "Name *": "Name *",
     "Surname *": "Surname *",
