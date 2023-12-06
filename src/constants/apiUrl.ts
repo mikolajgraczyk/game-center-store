@@ -1,6 +1,7 @@
-const isDev = process.env.NODE_ENV === 'development';
-const apiUrl = isDev
-  ? 'http://localhost:3000/api/games'
-  : 'game-center-store-c9e37hssb-mikolajgraczyk.vercel.app/api/games';
+const apiUrls = {
+  development: 'http://localhost:3000/api',
+  production: 'http://www.game-center-store-c9e37hssb-mikolajgraczyk.vercel.app/api',
+};
+const API_URL = apiUrls[process.env.NODE_ENV as 'development' | 'production'];
 
-export default apiUrl;
+export default API_URL;
