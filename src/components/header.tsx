@@ -1,8 +1,7 @@
 import Link from 'next/link';
-
-import Logo from '/public/icons/GameCenterLogo.svg';
-import routes from '@/constants/routes';
 import { useTranslations } from 'next-intl';
+import Logo from '@icons/GameCenterLogo.svg';
+import routes from '@/constants/routes';
 import LanguageSwitch from './languageSwitch';
 
 function Header() {
