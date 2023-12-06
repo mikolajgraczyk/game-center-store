@@ -15,7 +15,7 @@ function Select({
   return (
     <select defaultValue={defaultValue} onChange={onChange} className="text-backgrounds-main">
       {options.map((option) => (
-        <option key={option.key} value={option.value}>
+        <option key={option.key} value={option.key}>
           {option.value}
         </option>
       ))}
