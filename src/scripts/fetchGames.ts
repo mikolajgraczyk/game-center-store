@@ -1,9 +1,5 @@
 import { notFound } from 'next/dist/client/components/not-found';
-
-const isDev = process.env.NODE_ENV === 'development';
-const apiUrl = isDev
-  ? 'http://localhost:3000/api/games'
-  : 'game-center-store-c9e37hssb-mikolajgraczyk.vercel.app/api/games';
+import apiUrl from '@/constants/apiUrl';
 
 const fetchGames = async () => {
   const res = await fetch(apiUrl, { cache: 'no-store' });
