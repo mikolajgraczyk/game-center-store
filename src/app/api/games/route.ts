@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
+import Game from '@models/game';
 import connect from '@/libs/db';
-import Game from '@/../../models/game';
 
 export const GET = async () => {
   try {
@@ -8,7 +8,7 @@ export const GET = async () => {
     const games = await Game.find();
     return new NextResponse(JSON.stringify(games), { status: 200 });
   } catch (error) {
-    return new NextResponse('Error in fetching games' + error, { status: 500 });
+    return new NextResponse(`Error in fetching games: ${error}`, { status: 500 });
   }
 };
 
@@ -24,6 +24,6 @@ export const POST = async (req: NextRequest) => {
     await newGame.save();
     return new NextResponse(JSON.stringify(newGame), { status: 201 });
   } catch (error) {
-    return new NextResponse('Error in creating a new game: ' + error, { status: 500 });
+    return new NextResponse(`Error in creating a new game: ${error}`, { status: 500 });
   }
 };
