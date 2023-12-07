@@ -1,8 +1,8 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
-import { fetchGames } from '@/scripts/fetchGames';
-import { queryKeys } from '@/constants/queryKeys';
+import fetchGames from '@/scripts/fetchGames';
+import queryKeys from '@/constants/queryKeys';
 
 const HomePage = () => {
   const t = useTranslations('homePage');

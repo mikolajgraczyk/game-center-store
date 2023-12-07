@@ -2,10 +2,10 @@
 
 import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
-import { fetchGames } from '@/scripts/fetchGames';
-import { queryKeys } from '@/constants/queryKeys';
 import { redirect } from 'next/navigation';
-import { routes } from '@/constants/routes';
+import fetchGames from '@/scripts/fetchGames';
+import queryKeys from '@/constants/queryKeys';
+import routes from '@/constants/routes';
 import { Game } from '@/constants/types';
 import GameInsightHub from '@/components/gameInsightHub';
 import PurchasePanel from '@/components/purchasePanel';
