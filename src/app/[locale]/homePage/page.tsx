@@ -4,7 +4,7 @@ import HotDeals from '@/components/hotDeals';
 
 function HomePage() {
   return (
-    <main className="w-screen py-[70px] px-[113px]">
+    <main className="w-[100%] py-[70px] px-[113px]">
       <HotDeals />
     </main>
   );
