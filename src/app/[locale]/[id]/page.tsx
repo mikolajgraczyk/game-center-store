@@ -14,10 +14,10 @@ interface IGamePage {
   params: { id: number | string };
 }
 
-function gamePage({ params }: IGamePage) {
+function GamePage({ params }: IGamePage) {
   const t = useTranslations('gamePage');
 
-  const { isLoading, isError, data } = useQuery({
+  const { isLoading, data } = useQuery({
     queryKey: queryKeys.fetchGames,
     queryFn: () => fetchGames(),
   });
@@ -60,4 +60,4 @@ function gamePage({ params }: IGamePage) {
   }
 }
 
-export default gamePage;
+export default GamePage;
