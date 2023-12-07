@@ -1,11 +1,11 @@
-import { Game } from '@/constants/types';
 import { useTranslations } from 'next-intl';
+import { Game } from '@/constants/types';
 import calculatePrice from '@/scripts/calculatePrice';
 
 function PurchasePanel({ selectedGame }: { selectedGame: Game }) {
   const t = useTranslations('gamePage');
 
-  const { variant, discount, price, _id } = selectedGame;
+  const { variant, discount, price } = selectedGame;
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
 
@@ -25,13 +25,22 @@ function PurchasePanel({ selectedGame }: { selectedGame: Game }) {
       ) : (
         <span className="text-texts-gamePrice block text-[12px]">{finalPrice}</span>
       )}
-      <button className="py-[16px] w-[100%] text-[12px] rounded-[4px] bg-backgrounds-buyNowButton">
+      <button
+        type="button"
+        className="py-[16px] w-[100%] text-[12px] rounded-[4px] bg-backgrounds-buyNowButton"
+      >
         {t('BUY NOW')}
       </button>
-      <button className="py-[14px] border-[1px] rounded-[4px] w-[100%] border-opacity-60 border-borders-buttons text-[12px]">
+      <button
+        type="button"
+        className="py-[14px] border-[1px] rounded-[4px] w-[100%] border-opacity-60 border-borders-buttons text-[12px]"
+      >
         {t('ADD TO CART')}
       </button>
-      <button className="py-[6px] border-[1px] rounded-[4px] w-[100%] border-opacity-60 border-borders-buttons text-[12px]">
+      <button
+        type="button"
+        className="py-[6px] border-[1px] rounded-[4px] w-[100%] border-opacity-60 border-borders-buttons text-[12px]"
+      >
         {t('ADD TO WISHLIST')}
       </button>
     </div>
