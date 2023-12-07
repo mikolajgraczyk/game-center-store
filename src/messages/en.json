@@ -1,9 +1,16 @@
 {
-  "homePage": {
-    "Home Page": "Home Page"
+  "hotDeals": {
+    "Hot deals": "Hot deals",
+    "No games available": "No games available"
+  },
+  "errors": {
+    "An error occurred": "An error occurred"
   },
   "header": {
     "Login/Register": "Login/Register"
+  },
+  "gameTile": {
+    "Game Poster": "Game Poster"
   },
   "form": {
     "Name *": "Name *",

@@ -1,7 +1,8 @@
 import { notFound } from 'next/dist/client/components/not-found';
+import apiUrl from '@/constants/apiUrl';
 
-export const fetchGames = async () => {
-  const res = await fetch('http://localhost:3000/api/games', { cache: 'no-store' });
+const fetchGames = async () => {
+  const res = await fetch(`${apiUrl}/games`, { cache: 'no-store' });
 
   if (!res.ok) {
     return notFound();
@@ -9,3 +10,5 @@ export const fetchGames = async () => {
 
   return res.json();
 };
+
+export default fetchGames;

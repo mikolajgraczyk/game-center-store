@@ -7,6 +7,9 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      mobile: { max: '686px' },
+    },
     colors: {
       inputs: {
         placeholder: '#8D8D8D',
@@ -17,10 +20,11 @@ const config: Config = {
         loginTab: '#525252',
         loginInput: '#D9D9D9',
         loginButton: '#CF67B2',
-        socialButton: '#CF67B2',
         buyNowButton: '#FF013C',
         discountElement: '#CF67B2',
         white: '#FFFFFF',
+        gameSkeleton: '#454545',
+        socialButton: '#CF67B2',
       },
       buttons: {
         login: '#FFFFFF',
@@ -32,6 +36,11 @@ const config: Config = {
       },
       texts: {
         main: '#FFFFFF',
+        hotDeals: '#FFFFFF',
+        gameName: '#FFFFFF',
+        gamePrice: '#FFFFFF',
+        gameOldPrice: '#C2C2C2',
+        anErrorOccurred: '#960018',
       },
     },
     extend: {

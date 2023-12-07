@@ -1,9 +1,16 @@
 {
-  "homePage": {
-    "Home Page": "Strona Główna"
+  "hotDeals": {
+    "Hot deals": "Najgorętsze okazje",
+    "No games available": "Brak dostępnych gier"
+  },
+  "errors": {
+    "An error occurred": "Wystąpił błąd"
   },
   "header": {
     "Login/Register": "Zaloguj się/Zarejestruj się"
+  },
+  "gameTile": {
+    "Game Poster": "Plakat gry"
   },
   "form": {
     "Name *": "Imie *",

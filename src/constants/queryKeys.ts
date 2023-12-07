@@ -1,1 +1,3 @@
-export const queryKeys = { fetchGames: ['fetch', 'games'] };
+const queryKeys = { fetchGames: ['fetch', 'games'] };
+
+export default queryKeys;
