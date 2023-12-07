@@ -1,11 +1,10 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-
-const locales = ['en', 'pl'];
+import LOCALES from '@/constants/locales';
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return LOCALES.map((locale) => ({ locale }));
 }
 
 const NextIntlProvider = async ({
@@ -22,7 +21,7 @@ const NextIntlProvider = async ({
     notFound();
   }
 
-  const isValidLocale = locales.some((cur) => cur === locale);
+  const isValidLocale = LOCALES.some((cur) => cur === locale);
   if (!isValidLocale) notFound();
 
   unstable_setRequestLocale(locale);
