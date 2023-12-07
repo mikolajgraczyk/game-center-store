@@ -52,7 +52,7 @@ const gameSchema = new Schema(
     reviews: {
       type: [
         {
-          user: { type: String, required: true },
+          userId: { type: String, required: true },
           score: { type: Number, min: 1, max: 5, required: true },
         },
       ],

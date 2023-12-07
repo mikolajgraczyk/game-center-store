@@ -31,7 +31,6 @@ function gamePage({ params }: IGamePage) {
 
     if (!selectedGame) redirect(routes.homePage);
 
-    console.log(selectedGame);
     return (
       <main className="pt-[130px] px-[100px] max-w-[1600px] h-[100%] w-[100%] text-texts-main flex gap-[64px]">
         <div className="w-[100%] h-[100%]">
