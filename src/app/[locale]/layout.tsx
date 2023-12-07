@@ -1,10 +1,10 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import Header from "@/components/header";
-import Providers from "@/providers";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Montserrat } from 'next/font/google';
+import Header from '@/components/header';
+import Providers from '@/providers';
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 interface IRootLayout {
   children: React.ReactNode;
@@ -14,19 +14,16 @@ interface IRootLayout {
 }
 
 export const metadata: Metadata = {
-  title: "Game Center",
-  description: "Game Center Website",
+  title: 'Game Center',
+  description: 'Game Center Website',
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: IRootLayout) {
+export default async function RootLayout({ children, params: { locale } }: IRootLayout) {
   return (
     <Providers locale={locale}>
       <html lang={locale}>
         <body
-          className={`${montserrat.className} bg-backgrounds-main flex justify-center items-center h-screen px-3`}
+          className={`${montserrat.className} bg-backgrounds-main flex-row justify-center items-center h-screen`}
         >
           <Header />
           {children}

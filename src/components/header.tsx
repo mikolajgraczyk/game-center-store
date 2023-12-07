@@ -1,17 +1,17 @@
 import Link from 'next/link';
-import Logo from '/public/icons/GameCenterLogo.svg';
-import routes from '@/constants/routes';
+import Logo from '@icons/GameCenterLogo.svg';
 import { useTranslations } from 'next-intl';
+import routes from '@/constants/routes';
 
-const Header = () => {
+function Header() {
   const t = useTranslations('header');
 
   return (
-    <header className="bg-backgrounds-header absolute top-0 w-full h-[60px] flex px-[25px] py-[8px] items-center justify-between text-buttons-accountAccess font-medium">
+    <header className="bg-backgrounds-header w-full h-[60px] flex px-[25px] py-[8px] items-center justify-between text-buttons-accountAccess font-medium">
       <Logo />
       <Link href={routes.login}>{t('Login/Register')}</Link>
     </header>
   );
-};
+}
 
 export default Header;
