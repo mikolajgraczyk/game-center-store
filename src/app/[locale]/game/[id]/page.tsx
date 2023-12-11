@@ -2,38 +2,53 @@
 
 import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
-import { redirect } from 'next/navigation';
-import fetchGames from '@/scripts/fetchGames';
+import fetchGame from '@/apiUrls/game';
 import queryKeys from '@/constants/queryKeys';
-import routes from '@/constants/routes';
-import { Game } from '@/constants/types';
-import GameInsightHub from '@/components/gameInsightHub';
-import PurchasePanel from '@/components/purchasePanel';
 
 interface IGamePage {
   params: { id: number | string };
 }
 
 function GamePage({ params }: IGamePage) {
-  const t = useTranslations('gamePage');
+  const t = useTranslations();
 
-  const { isLoading, data } = useQuery({
-    queryKey: queryKeys.fetchGames,
-    queryFn: () => fetchGames(),
+  const gameId = params.id || '';
+
+  const { isLoading, isError, data } = useQuery({
+    queryKey: queryKeys.fetchGame,
+    queryFn: () => fetchGame(gameId),
   });
 
   if (isLoading) {
     return <span>LOADING</span>;
   }
 
-  if (data) {
-    const selectedGame = data.find((game: Game) => game._id === params.id);
+  if (isError) {
+    return (
+      <div className="mt-[25%] text-center">
+        <span className="text-[32px] font-[700] text-texts-anErrorOccurred">
+          {t('errors.An error occurred')}
+        </span>
+      </div>
+    );
+  }
 
-    if (!selectedGame) redirect(routes.homePage);
+  if (data.error) {
+    return (
+      <div className="mt-[25%] text-center">
+        <span className="text-[32px] font-[700] text-texts-anErrorOccurred">
+          {t(`errors.${data.error}`)}
+        </span>
+      </div>
+    );
+  }
+
+  if (data) {
+    console.log(data);
 
     return (
-      <main className="pt-[130px] px-[100px] max-w-[1600px] h-[100%] w-[100%] text-texts-main flex gap-[64px]">
-        <div className="w-[100%] h-[100%]">
+      <main className="pt-[130px] px-[100px] max-w-[1600px] w-[100%] text-texts-main flex gap-[64px]">
+        {/* <div className="w-[100%] h-[100%]">
           <span className="text-[50px] tracking-[-1px]">{selectedGame.name}</span>
           <div className="mt-[15px] flex gap-[15px]">
             <div>[average reviews]</div>
@@ -54,7 +69,7 @@ function GamePage({ params }: IGamePage) {
         </div>
         <div className="max-w-[320px] w-[100%]">
           <PurchasePanel selectedGame={selectedGame} />
-        </div>
+        </div> */}
       </main>
     );
   }

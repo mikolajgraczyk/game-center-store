@@ -1,17 +1,22 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { Game } from '@/constants/types';
 import calculatePrice from '@/scripts/calculatePrice';
+import routes from '@/constants/routes';
 
 function GameTile({ game }: { game: Game }) {
   const t = useTranslations('gameTile');
 
-  const { cover_photo, name, discount, price } = game;
+  const { cover_photo, name, discount, price, _id } = game;
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
 
   return (
-    <div className="flex-col space-y-[10px] mt-[20px] max-w-[200px] mobile:mx-auto">
+    <Link
+      href={`${routes.gamePage}/${_id}`}
+      className="flex-col space-y-[10px] mt-[20px] max-w-[200px] mobile:mx-auto"
+    >
       <Image
         loader={() => cover_photo}
         src={cover_photo}
@@ -34,7 +39,7 @@ function GameTile({ game }: { game: Game }) {
       ) : (
         <span className="text-texts-gamePrice block text-[12px]">{finalPrice}</span>
       )}
-    </div>
+    </Link>
   );
 }
 

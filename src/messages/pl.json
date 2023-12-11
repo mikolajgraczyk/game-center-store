@@ -4,7 +4,8 @@
     "No games available": "Brak dostępnych gier"
   },
   "errors": {
-    "An error occurred": "Wystąpił błąd"
+    "An error occurred": "Wystąpił błąd",
+    "FAIL_LOADING_GAME": "Błąd ładowania gry"
   },
   "header": {
     "Login/Register": "Zaloguj się/Zarejestruj się"

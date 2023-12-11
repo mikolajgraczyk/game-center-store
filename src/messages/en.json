@@ -4,7 +4,8 @@
     "No games available": "No games available"
   },
   "errors": {
-    "An error occurred": "An error occurred"
+    "An error occurred": "An error occurred",
+    "FAIL_LOADING_GAME": "Fail loading game"
   },
   "header": {
     "Login/Register": "Login/Register"

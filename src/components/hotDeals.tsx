@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
 import { Game } from '@/constants/types';
-import fetchGames from '@/scripts/fetchGames';
+import fetchGames from '@/apiUrls/games';
 import queryKeys from '@/constants/queryKeys';
 import createNumberArray from '@/scripts/arrayMethods';
 import GameTile from '@/components/gameTile';
@@ -63,7 +63,7 @@ function HotDeals() {
         </>
       ) : (
         <span className="text-[20px] font-[700] text-texts-hotDeals">
-          {t('hotDeals:No games available')}
+          {t('hotDeals.No games available')}
         </span>
       )}
     </Wrapper>
