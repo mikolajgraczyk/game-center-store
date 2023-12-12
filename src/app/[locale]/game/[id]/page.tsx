@@ -2,8 +2,10 @@
 
 import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
+import Loader from '@icons/Loader.svg';
 import fetchGame from '@/apiUrls/game';
 import queryKeys from '@/constants/queryKeys';
+import ErrorWrapper from '@/components/errorWrapper';
 
 interface IGamePage {
   params: { id: number | string };
@@ -17,30 +19,24 @@ function GamePage({ params }: IGamePage) {
   const { isLoading, isError, data } = useQuery({
     queryKey: queryKeys.fetchGame,
     queryFn: () => fetchGame(gameId),
+    refetchOnWindowFocus: false,
+    gcTime: 0,
   });
 
   if (isLoading) {
-    return <span>LOADING</span>;
+    return (
+      <div className="mt-[20%]">
+        <Loader />
+      </div>
+    );
   }
 
   if (isError) {
-    return (
-      <div className="mt-[25%] text-center">
-        <span className="text-[32px] font-[700] text-texts-anErrorOccurred">
-          {t('errors.An error occurred')}
-        </span>
-      </div>
-    );
+    return <ErrorWrapper>{t('errors.An error occurred')}</ErrorWrapper>;
   }
 
   if (data.error) {
-    return (
-      <div className="mt-[25%] text-center">
-        <span className="text-[32px] font-[700] text-texts-anErrorOccurred">
-          {t(`errors.${data.error}`)}
-        </span>
-      </div>
-    );
+    return <ErrorWrapper>{t(`errors.${data.error}`)}</ErrorWrapper>;
   }
 
   if (data) {
