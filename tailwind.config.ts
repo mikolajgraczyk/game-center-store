@@ -20,15 +20,22 @@ const config: Config = {
         loginTab: '#525252',
         loginInput: '#D9D9D9',
         loginButton: '#CF67B2',
+        buyNowButton: '#FF013C',
+        discountElement: '#CF67B2',
+        white: '#FFFFFF',
         gameSkeleton: '#454545',
         socialButton: '#CF67B2',
-        discountElement: '#CF67B2',
       },
       buttons: {
         login: '#FFFFFF',
         accountAccess: '#FFFFFF',
       },
+      borders: {
+        gameInsightHub: '#FFFFFF',
+        buttons: '#FFFFFF',
+      },
       texts: {
+        main: '#FFFFFF',
         hotDeals: '#FFFFFF',
         gameName: '#FFFFFF',
         gamePrice: '#FFFFFF',

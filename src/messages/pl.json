@@ -4,7 +4,8 @@
     "No games available": "Brak dostępnych gier"
   },
   "errors": {
-    "An error occurred": "Wystąpił błąd"
+    "DEFAULT_ERROR_MESSAGE": "Wystąpił błąd",
+    "FAIL_LOADING_GAME": "Błąd ładowania gry"
   },
   "header": {
     "Login/Register": "Zaloguj się/Zarejestruj się"
@@ -36,5 +37,16 @@
   "loginTab": {
     "Forgot your password?": "Zapomniałeś hasła?",
     "Don't have an account? Sign up": "Nie masz konta? Zarejestruj się"
+  },
+  "gamePage": {
+    "Genres": "Gatunki",
+    "Features": "Cechy",
+    "BUY NOW": "KUP TERAZ",
+    "ADD TO CART": "DODAJ DO KOSZYKA",
+    "ADD TO WISHLIST": "DODAJ DO LISTY ŻYCZEŃ",
+    "Developer": "Deweloper",
+    "Publisher": "Wydawca",
+    "Release Date": "Data wydania",
+    "Platform": "Platforma"
   }
 }

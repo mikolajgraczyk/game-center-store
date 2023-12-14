@@ -1,27 +1,35 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { Game } from '@/constants/types';
 import calculatePrice from '@/scripts/calculatePrice';
+import routes from '@/constants/routes';
 
-function GameTile({ game }: { game: Game }) {
+interface IGameTile {
+  game: Game;
+}
+
+function GameTile({ game }: IGameTile) {
   const t = useTranslations('gameTile');
 
-  const { cover_photo, name, discount, price } = game;
+  const { cover_photo, name, discount, price, _id } = game;
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
 
   return (
     <div className="flex-col space-y-[10px] mt-[20px] max-w-[200px] mobile:mx-auto">
-      <Image
-        loader={() => cover_photo}
-        src={cover_photo}
-        alt={t('Game Poster')}
-        width={200}
-        height={265}
-        className="w-[200px] h-[265px] object-cover"
-        priority
-        unoptimized
-      />
+      <Link href={`${routes.gamePage}/${_id}`}>
+        <Image
+          loader={() => cover_photo}
+          src={cover_photo}
+          alt={t('Game Poster')}
+          width={200}
+          height={265}
+          className="w-[200px] h-[265px] object-cover"
+          priority
+          unoptimized
+        />
+      </Link>
       <span className="text-texts-gameName block text-[14px]">{name}</span>
       {discount ? (
         <div className="flex items-center justify-between text-[12px]">

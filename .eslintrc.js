@@ -16,6 +16,12 @@ module.exports = {
         'no-underscore-dangle': 'off',
       },
     },
+    {
+      files: ['route.ts', 'route.tsx'],
+      rules: {
+        'import/prefer-default-export': 'off',
+      },
+    },
   ],
   settings: {
     'import/resolver': {

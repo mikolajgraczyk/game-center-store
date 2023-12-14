@@ -1,10 +1,10 @@
 'use client';
 
 import { useForm, FormProvider } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FacebookLogo from '@icons/FacebookLogo.svg';
 import GoogleLogo from '@icons/GoogleLogo.svg';
-import { useTranslations } from 'next-intl';
 import useValidationSchema from '@/hooks/useValidation';
 import Input from '@/components/input';
 import LoginTab from '@/components/loginTab';
