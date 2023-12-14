@@ -4,7 +4,7 @@
     "No games available": "No games available"
   },
   "errors": {
-    "An error occurred": "An error occurred",
+    "DEFAULT_ERROR_MESSAGE": "An error occurred",
     "FAIL_LOADING_GAME": "Fail loading game"
   },
   "header": {

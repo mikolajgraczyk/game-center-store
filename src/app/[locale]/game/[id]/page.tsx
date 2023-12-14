@@ -1,34 +1,28 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
 import Loader from '@icons/Loader.svg';
 import fetchGame from '@/apiUrls/game';
 import queryKeys from '@/constants/queryKeys';
 import ErrorWrapper from '@/components/errorWrapper';
+import useGetErrorMessage from '@/hooks/useGetErrorMessage';
 
 interface IGamePage {
   params: { id: number | string };
 }
 
 function GamePage({ params }: IGamePage) {
-  const t = useTranslations();
+  const { getErrorMessage } = useGetErrorMessage();
 
   const gameId = params.id || '';
 
-  const { isLoading, isError, data } = useQuery({
-    queryKey: queryKeys.fetchGame,
+  const { isLoading, error, data } = useQuery({
+    queryKey: queryKeys.fetchGame(gameId),
     queryFn: () => fetchGame(gameId),
     refetchOnWindowFocus: false,
     gcTime: 0,
     enabled: Boolean(gameId),
   });
-
-  const getErrorMessage = (error: boolean | string) => {
-    const errorMessage =
-      typeof error === 'string' ? t(`errors.${error}`) : t('errors.An error occurred');
-    return errorMessage;
-  };
 
   if (isLoading) {
     return (
@@ -38,8 +32,8 @@ function GamePage({ params }: IGamePage) {
     );
   }
 
-  if (isError || data.error) {
-    return <ErrorWrapper>{getErrorMessage(isError || data.error)}</ErrorWrapper>;
+  if (error) {
+    return <ErrorWrapper>{getErrorMessage(error)}</ErrorWrapper>;
   }
 
   if (data) {

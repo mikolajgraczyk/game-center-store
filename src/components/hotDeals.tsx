@@ -47,7 +47,7 @@ function HotDeals() {
     return (
       <>
         <Wrapper />
-        <ErrorWrapper>{t('errors.An error occurred')}</ErrorWrapper>
+        <ErrorWrapper>{t('errors.DEFAULT_ERROR_MESSAGE')}</ErrorWrapper>
       </>
     );
   }
