@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import routes from '@/constants/routes';
 
-interface LoginTabProps {
+interface ILoginTab {
   children: JSX.Element | JSX.Element[];
 }
 
-function LoginTab({ children }: LoginTabProps) {
+function LoginTab({ children }: ILoginTab) {
   const t = useTranslations('loginTab');
 
   return (

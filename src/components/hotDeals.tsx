@@ -8,7 +8,11 @@ import GameTile from '@/components/gameTile';
 import GameTileSkeleton from '@/components/gameTileSkeleton';
 import ErrorWrapper from './errorWrapper';
 
-function Wrapper({ children }: { children?: React.ReactNode }) {
+interface IWrapper {
+  children?: React.ReactNode;
+}
+
+function Wrapper({ children }: IWrapper) {
   const t = useTranslations('hotDeals');
 
   return (

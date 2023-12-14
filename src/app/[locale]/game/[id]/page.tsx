@@ -21,7 +21,14 @@ function GamePage({ params }: IGamePage) {
     queryFn: () => fetchGame(gameId),
     refetchOnWindowFocus: false,
     gcTime: 0,
+    enabled: Boolean(gameId),
   });
+
+  const getErrorMessage = (error: boolean | string) => {
+    const errorMessage =
+      typeof error === 'string' ? t(`errors.${error}`) : t('errors.An error occurred');
+    return errorMessage;
+  };
 
   if (isLoading) {
     return (
@@ -31,17 +38,11 @@ function GamePage({ params }: IGamePage) {
     );
   }
 
-  if (isError) {
-    return <ErrorWrapper>{t('errors.An error occurred')}</ErrorWrapper>;
-  }
-
-  if (data.error) {
-    return <ErrorWrapper>{t(`errors.${data.error}`)}</ErrorWrapper>;
+  if (isError || data.error) {
+    return <ErrorWrapper>{getErrorMessage(isError || data.error)}</ErrorWrapper>;
   }
 
   if (data) {
-    console.log(data);
-
     return (
       <main className="pt-[130px] px-[100px] max-w-[1600px] w-[100%] text-texts-main flex gap-[64px]">
         {/* <div className="w-[100%] h-[100%]">

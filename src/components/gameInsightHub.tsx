@@ -1,4 +1,9 @@
-function GameInsightHub({ title, content }: { title: string; content: [string] }) {
+interface IGameInsightHub {
+  title: string;
+  content: [string];
+}
+
+function GameInsightHub({ title, content }: IGameInsightHub) {
   return (
     <div className="border-l-[1px] px-[20px] border-opacity-10 border-borders-gameInsightHub">
       <span className="opacity-60 text-[14px]">{title}</span>

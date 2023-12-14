@@ -2,7 +2,11 @@ import { useTranslations } from 'next-intl';
 import { Game } from '@/constants/types';
 import calculatePrice from '@/scripts/calculatePrice';
 
-function PurchasePanel({ selectedGame }: { selectedGame: Game }) {
+type IPurchasePanel = {
+  selectedGame: Game;
+};
+
+function PurchasePanel({ selectedGame }: IPurchasePanel) {
   const t = useTranslations('gamePage');
 
   const { variant, discount, price } = selectedGame;
