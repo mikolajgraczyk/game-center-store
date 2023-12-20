@@ -14,7 +14,7 @@ export interface Game {
     platforms: ('windows' | 'mac')[];
   };
   reviews: {
-    user: string;
+    userId: string;
     score: number;
   }[];
   highlightedFeatures?: string[];
