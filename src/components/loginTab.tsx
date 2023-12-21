@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import routes from '@/constants/routes';
 import Icon from './icon';
+import useRoutes from '@/hooks/useRoutes';
 
 interface ILoginTab {
   children: JSX.Element | JSX.Element[];
@@ -9,6 +9,7 @@ interface ILoginTab {
 
 function LoginTab({ children }: ILoginTab) {
   const t = useTranslations('loginTab');
+  const routes = useRoutes();
 
   return (
     <div className="bg-backgrounds-loginTab max-w-[450px] w-full rounded-[10px] shadow-loginTab py-[40px] px-[35px] flex flex-col gap-[20px] items-center">
