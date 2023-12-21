@@ -2,9 +2,6 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
-import Loader from '@icons/Loader.svg';
-import WindowsIcon from '@icons/WindowsIcon.svg';
-import MacIcon from '@icons/MacIcon.svg';
 import fetchGame from '@/apiUrls/game';
 import queryKeys from '@/constants/queryKeys';
 import ErrorWrapper from '@/components/errorWrapper';
@@ -12,6 +9,7 @@ import useGetErrorMessage from '@/hooks/useGetErrorMessage';
 import GameInsightHub from '@/components/gameInsightHub';
 import PurchasePanel from '@/components/purchasePanel';
 import GameInfoHub from '@/components/gameInfoHub';
+import Icon from '@/components/icon';
 
 interface IGamePage {
   params: { id: number | string };
@@ -31,19 +29,14 @@ function GamePage({ params }: IGamePage) {
     enabled: Boolean(gameId),
   });
 
-  function getPlatformIcon(platforms: ('windows' | 'mac')[]): (JSX.Element | undefined)[] {
-    return platforms.map((platform) => {
-      if (platform === 'windows') return <WindowsIcon key={platform} />;
-      if (platform === 'mac') return <MacIcon key={platform} />;
-
-      return undefined;
-    });
+  function getPlatformIcon(platforms: ('windows' | 'mac')[]): JSX.Element[] {
+    return platforms.map((platform) => <Icon name={platform} />);
   }
 
   if (isLoading) {
     return (
       <div className="mt-[20%]">
-        <Loader />
+        <Icon name="loader" />
       </div>
     );
   }

@@ -1,8 +1,6 @@
-import { ReactNode } from 'react';
-
 interface IGameInfoHub {
   title: string;
-  content: string | ReactNode[];
+  content: string | JSX.Element[];
 }
 
 function GameInfoHub({ title, content }: IGameInfoHub) {
