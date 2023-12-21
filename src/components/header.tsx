@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import Logo from '@icons/GameCenterLogo.svg';
 import useRoutes from '@/hooks/useRoutes';
 import LanguageSwitch from './languageSwitch';
+import Icon from './icon';
 
 function Header() {
   const t = useTranslations('header');
@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <header className="bg-backgrounds-header w-full h-[60px] flex px-[25px] py-[8px] items-center justify-between text-buttons-accountAccess font-medium">
-      <Logo />
+      <Icon name="logo" />
       <LanguageSwitch />
       <Link href={routes.login}>{t('Login/Register')}</Link>
     </header>

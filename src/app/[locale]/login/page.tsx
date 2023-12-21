@@ -3,11 +3,10 @@
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FacebookLogo from '@icons/FacebookLogo.svg';
-import GoogleLogo from '@icons/GoogleLogo.svg';
 import useValidationSchema from '@/hooks/useValidation';
 import Input from '@/components/input';
 import LoginTab from '@/components/loginTab';
+import Icon from '@/components/icon';
 
 function Login() {
   const { loginValidationSchema } = useValidationSchema();
@@ -50,10 +49,10 @@ function Login() {
         </FormProvider>
         <div className="flex gap-[15px]">
           <button type="button" className="bg-backgrounds-socialButton p-[5px] rounded-full">
-            <FacebookLogo />
+            <Icon name="facebook" />
           </button>
           <button type="button" className="bg-backgrounds-socialButton p-[5px] rounded-full">
-            <GoogleLogo />
+            <Icon name="google" />
           </button>
         </div>
       </LoginTab>

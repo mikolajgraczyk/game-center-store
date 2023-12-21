@@ -1,6 +1,6 @@
-import Logo from '@icons/GameCenterLogo.svg';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Icon from './icon';
 import useRoutes from '@/hooks/useRoutes';
 
 interface ILoginTab {
@@ -13,7 +13,7 @@ function LoginTab({ children }: ILoginTab) {
 
   return (
     <div className="bg-backgrounds-loginTab max-w-[450px] w-full rounded-[10px] shadow-loginTab py-[40px] px-[35px] flex flex-col gap-[20px] items-center">
-      <Logo />
+      <Icon name="logo" />
       {children}
       <div className="flex text-[12px] justify-between text-buttons-accountAccess font-normal w-full underline text-center">
         <Link href="_">{t('Forgot your password?')}</Link>
