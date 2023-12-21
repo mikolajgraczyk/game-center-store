@@ -30,7 +30,7 @@ function GamePage({ params }: IGamePage) {
   });
 
   function getPlatformIcon(platforms: ('windows' | 'mac')[]): JSX.Element[] {
-    return platforms.map((platform) => <Icon name={platform} />);
+    return platforms.map((platform) => <Icon key={platform} name={platform} />);
   }
 
   if (isLoading) {
