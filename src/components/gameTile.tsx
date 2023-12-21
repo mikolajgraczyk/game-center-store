@@ -3,16 +3,17 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Game } from '@/constants/types';
 import calculatePrice from '@/scripts/calculatePrice';
-import routes from '@/constants/routes';
+import useRoutes from '@/hooks/useRoutes';
 
 interface IGameTile {
   game: Game;
 }
 
 function GameTile({ game }: IGameTile) {
-  const t = useTranslations('gameTile');
-
   const { cover_photo, name, discount, price, _id } = game;
+
+  const t = useTranslations('gameTile');
+  const routes = useRoutes();
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
 
