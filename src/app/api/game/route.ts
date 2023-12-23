@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
       (
         reviews.reduce((reviewA: number, reviewB: Review) => reviewA + reviewB.score, 0) /
         reviews.length
-      ).toFixed(2),
+      ).toFixed(1),
     );
 
     return { ...restData, score };
