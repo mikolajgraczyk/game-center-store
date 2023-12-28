@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import Icon from './icon';
 
 interface IGamePhotoSlider {
   photos: string[];
@@ -14,8 +15,13 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
         <Image src={photos[selectedPhotoIndex]} fill unoptimized alt="Preview Photo" priority />
       </div>
       <div className="w-[100%] aspect-[15.36/1] mt-[20px] flex justify-between">
-        <button type="button" className="w-[30px]">
-          {'<-'}
+        <button
+          type="button"
+          className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200"
+        >
+          <div className="rotate-180">
+            <Icon name="sliderArrow" />
+          </div>
         </button>
         <div className="flex gap-[15px] w-[100%] overflow-hidden max-w-[647px]">
           {photos.map((photoURL, index) => (
@@ -36,8 +42,11 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             </button>
           ))}
         </div>
-        <button type="button" className="w-[30px]">
-          {'->'}
+        <button
+          type="button"
+          className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200"
+        >
+          <Icon name="sliderArrow" />
         </button>
       </div>
     </div>
