@@ -12,9 +12,9 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
 
   return (
     <div className="w-full">
-      <div className="aspect-video overflow-hidden">
+      <div className="overflow-hidden">
         <motion.div
-          className="flex relative"
+          className="flex relative h-full aspect-video"
           animate={{ translateX: `-${selectedPhotoIndex * 100}%` }}
         >
           {photos.map((photoURL) => (
