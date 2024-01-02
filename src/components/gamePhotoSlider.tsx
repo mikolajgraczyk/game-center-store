@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Icon from './icon';
 
@@ -10,11 +11,26 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
 
   return (
-    <div className="w-[100%]">
-      <div className="w-[100%] aspect-video bg-inputs-placeholder relative">
-        <Image src={photos[selectedPhotoIndex]} fill unoptimized alt="Preview Photo" priority />
+    <div className="w-full">
+      <div className="aspect-video overflow-hidden">
+        <motion.div
+          className="flex relative"
+          animate={{ translateX: `-${selectedPhotoIndex * 100}%` }}
+        >
+          {photos.map((photoURL) => (
+            <Image
+              key={photoURL}
+              src={photoURL}
+              height={0}
+              width={0}
+              unoptimized
+              alt="Preview Photo"
+              className="w-full"
+            />
+          ))}
+        </motion.div>
       </div>
-      <div className="w-[100%] aspect-[15.36/1] mt-[20px] flex justify-between">
+      <div className="aspect-[15.36/1] mt-[20px] flex gap-[8px] justify-between">
         <button
           type="button"
           className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200"
@@ -23,24 +39,27 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             <Icon name="sliderArrow" />
           </div>
         </button>
-        <div className="flex gap-[15px] w-[100%] overflow-hidden max-w-[647px]">
-          {photos.map((photoURL, index) => (
-            <button
-              type="button"
-              onClick={() => setSelectedPhotoIndex(index)}
-              className="h-[100%] aspect-video relative opacity-40 hover:opacity-100 transition duration-300"
-              key={photoURL}
-            >
-              <Image
-                src={photoURL}
-                alt="Preview Photo"
-                className="object-cover h-[100%] w-[100%] rounded-[4px]"
-                fill
-                quality={1}
-                unoptimized
-              />
-            </button>
-          ))}
+        <div className="flex w-full max-w-[647px] overflow-hidden">
+          <motion.div className="flex gap-[15px] w-full" animate={{ translateX: `-${0 * 100}%` }}>
+            {photos.map((photoURL, index) => (
+              <button
+                type="button"
+                onClick={() => setSelectedPhotoIndex(index)}
+                className="h-full aspect-video relative opacity-40 hover:opacity-100 transition duration-300"
+                key={photoURL}
+              >
+                <Image
+                  src={photoURL}
+                  alt="Preview Photo"
+                  className="object-cover h-full w-full rounded-[4px]"
+                  fill
+                  quality={1}
+                  priority
+                  unoptimized
+                />
+              </button>
+            ))}
+          </motion.div>
         </div>
         <button
           type="button"
