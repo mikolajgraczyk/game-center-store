@@ -12,7 +12,8 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
   const [sliderPosition, setSliderPosition] = useState(0);
 
   function moveSlider(isForward: boolean) {
-    const sliderMaxPosition = photos.length / 5;
+    const sliderMaxPosition =
+      (photos.length / 5) % 1 === 0 ? photos.length / 5 - 0.1 : photos.length / 5;
 
     if (isForward) {
       setSliderPosition((prev) => (prev + 1 >= sliderMaxPosition ? 0 : prev + 1));
