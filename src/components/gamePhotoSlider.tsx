@@ -40,7 +40,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
               width={0}
               unoptimized
               alt="Preview Photo"
-              className="w-full"
+              className="w-full aspect-video"
             />
           ))}
         </motion.div>
