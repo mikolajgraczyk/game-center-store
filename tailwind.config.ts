@@ -30,6 +30,7 @@ const config: Config = {
       buttons: {
         login: '#FFFFFF',
         accountAccess: '#FFFFFF',
+        slider: '#202020',
       },
       borders: {
         gameInsightHub: '#FFFFFF',
