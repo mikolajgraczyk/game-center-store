@@ -16,6 +16,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
         <motion.div
           className="flex relative h-full aspect-video"
           animate={{ translateX: `-${selectedPhotoIndex * 100}%` }}
+          transition={{ type: 'tween', duration: 0.3 }}
         >
           {photos.map((photoURL) => (
             <Image
