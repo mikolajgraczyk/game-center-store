@@ -10,6 +10,7 @@ import GameInsightHub from '@/components/gameInsightHub';
 import PurchasePanel from '@/components/purchasePanel';
 import GameInfoHub from '@/components/gameInfoHub';
 import Icon from '@/components/icon';
+import StarRating from '@/components/starRating';
 
 interface IGamePage {
   params: { id: number | string };
@@ -30,7 +31,7 @@ function GamePage({ params }: IGamePage) {
   });
 
   function getPlatformIcon(platforms: ('windows' | 'mac')[]): JSX.Element[] {
-    return platforms.map((platform) => <Icon name={platform} />);
+    return platforms.map((platform) => <Icon key={platform} name={platform} />);
   }
 
   if (isLoading) {
@@ -53,8 +54,13 @@ function GamePage({ params }: IGamePage) {
       <main className="py-[50px] px-[40px] w-[100%] max-w-[1600px] mx-[auto] text-texts-main grid gap-y-[64px] gap-x-[32px] tablet:gap-y-[20px] mobile:py-[15px] mobile:px-[20px]">
         <div className="col-span-2 tablet:col-span-1">
           <span className="text-[50px] tracking-[-1px] mobile:text-[36px]">{game.name}</span>
-          <div className="mt-[15px] flex gap-[15px]">
-            <div>[average reviews]</div>
+          <div className="mt-[15px] h-[20px] gap-[10px] flex items-center">
+            <div className="w-[131px] grid grid-cols-[100px,1fr] gap-[5px]">
+              <StarRating score={game.score} />
+              <div className="bg-backgrounds-white bg-opacity-10 text-texts-main text-[12px] py-[2px] px-[4px] font-[700] rounded-[4px] tracking-[1px] text-center">
+                {game.score}
+              </div>
+            </div>
             <div className="flex gap-[20px] mobile:hidden">
               {game.highlightedFeatures.map((feature: string) => (
                 <span key={feature}>{feature}</span>

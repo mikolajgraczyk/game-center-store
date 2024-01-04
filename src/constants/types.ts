@@ -1,3 +1,8 @@
+export interface Review {
+  userId: string;
+  score: number;
+}
+
 export interface Game {
   name: string;
   price: number;
@@ -13,10 +18,7 @@ export interface Game {
     releaseDate: Date;
     platforms: ('windows' | 'mac')[];
   };
-  reviews: {
-    userId: string;
-    score: number;
-  }[];
+  reviews: Review[];
   highlightedFeatures?: string[];
   createdAt?: Date;
   updatedAt?: Date;
