@@ -15,19 +15,23 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
 
   const t = useTranslations('gamePage');
 
-  const thumbnailCardsNumber = Math.ceil(photos.length / 5);
+  const photosPerSlide = 5;
+
+  const thumbnailCardsNumber = Math.ceil(photos.length / photosPerSlide);
   const thumbnailsCards = Array.from({ length: thumbnailCardsNumber }, (v, k) => k + 1);
 
   const photosToMap = thumbnailsCards.map((card) => {
-    const startIndex = (card - 1) * 5;
-    let endIndex = card * 5;
+    const startIndex = (card - 1) * photosPerSlide;
+    let endIndex = card * photosPerSlide;
     endIndex = endIndex > photos.length ? photos.length : endIndex;
     return photos.slice(startIndex, endIndex);
   });
 
   function moveSlider(isForward: boolean) {
     const sliderMaxPosition =
-      (photos.length / 5) % 1 === 0 ? photos.length / 5 - 0.1 : photos.length / 5;
+      (photos.length / photosPerSlide) % 1 === 0
+        ? photos.length / photosPerSlide - 0.1
+        : photos.length / photosPerSlide;
 
     if (isForward) {
       setSliderPosition((prev) => (prev + 1 >= sliderMaxPosition ? 0 : prev + 1));
@@ -50,11 +54,11 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
     }
 
     setSelectedPhotoIndex(newIndex);
-    setSliderPosition(Math.floor(newIndex / 5));
+    setSliderPosition(Math.floor(newIndex / photosPerSlide));
   }
 
   function onThumbnailClick(index: number) {
-    setSelectedPhotoIndex(() => index + sliderPosition * 5);
+    setSelectedPhotoIndex(() => index + sliderPosition * photosPerSlide);
   }
 
   return (
@@ -132,7 +136,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             {photosToMap.map((photosArray) => (
               <div className="flex gap-[15px] w-[647px]" key={photosArray[0]}>
                 {photosArray.map((photoURL, index) => {
-                  const isSelected = index + 5 * sliderPosition === selectedPhotoIndex;
+                  const isSelected = index + photosPerSlide * sliderPosition === selectedPhotoIndex;
 
                   return (
                     <button
