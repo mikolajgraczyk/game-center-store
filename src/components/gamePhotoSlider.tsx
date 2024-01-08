@@ -41,12 +41,16 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
 
   function moveSelectedPhoto(isForward: boolean) {
     const lastPhoto = photos.length - 1;
+    let newIndex;
 
     if (isForward) {
-      setSelectedPhotoIndex((prev) => (prev === lastPhoto ? 0 : prev + 1));
-      return;
+      newIndex = selectedPhotoIndex === lastPhoto ? 0 : selectedPhotoIndex + 1;
+    } else {
+      newIndex = selectedPhotoIndex === 0 ? lastPhoto : selectedPhotoIndex - 1;
     }
-    setSelectedPhotoIndex((prev) => (prev === 0 ? lastPhoto : prev - 1));
+
+    setSelectedPhotoIndex(newIndex);
+    setSliderPosition(Math.floor(newIndex / 5));
   }
 
   function onThumbnailClick(index: number) {
