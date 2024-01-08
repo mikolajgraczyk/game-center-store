@@ -27,12 +27,12 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
     return photos.slice(startIndex, endIndex);
   });
 
-  function moveSlider(isForward: boolean) {
-    const sliderMaxPosition =
-      (photos.length / photosPerSlide) % 1 === 0
-        ? photos.length / photosPerSlide - 0.1
-        : photos.length / photosPerSlide;
+  const sliderMaxPosition =
+    (photos.length / photosPerSlide) % 1 === 0
+      ? photos.length / photosPerSlide - 0.1
+      : photos.length / photosPerSlide;
 
+  function moveSlider(isForward: boolean) {
     if (isForward) {
       setSliderPosition((prev) => (prev + 1 >= sliderMaxPosition ? 0 : prev + 1));
       return;
@@ -118,8 +118,9 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
       </div>
       <div className="aspect-[15.36/1] mt-[20px] flex gap-[8px] justify-between">
         <button
+          disabled={sliderMaxPosition < 1}
           type="button"
-          className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200"
+          className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200 disabled:opacity-30"
           onClick={() => moveSlider(false)}
         >
           <div className="rotate-180">
@@ -164,8 +165,9 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
           </motion.div>
         </div>
         <button
+          disabled={sliderMaxPosition < 1}
           type="button"
-          className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200"
+          className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200 disabled:opacity-30"
           onClick={() => moveSlider(true)}
         >
           <Icon name="sliderArrow" />
