@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Icon from './icon';
-import { useTranslations } from 'next-intl';
 
 interface IGamePhotoSlider {
   photos: string[];
@@ -44,7 +44,6 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
 
     if (isForward) {
       setSelectedPhotoIndex((prev) => (prev === lastPhoto ? 0 : prev + 1));
-
       return;
     }
     setSelectedPhotoIndex((prev) => (prev === 0 ? lastPhoto : prev - 1));
