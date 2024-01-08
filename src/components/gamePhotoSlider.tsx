@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Icon from './icon';
+import { useTranslations } from 'next-intl';
 
 interface IGamePhotoSlider {
   photos: string[];
@@ -11,6 +12,8 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(0);
   const [isPhotoHovered, setIsPhotoHovered] = useState(false);
+
+  const t = useTranslations('gamePage');
 
   const thumbnailCardsNumber = Math.ceil(photos.length / 5);
   const thumbnailsCards = Array.from({ length: thumbnailCardsNumber }, (v, k) => k + 1);
@@ -70,7 +73,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
               height={0}
               width={0}
               unoptimized
-              alt="Preview Photo"
+              alt={t('Preview Photo')}
               className="w-full aspect-video"
             />
           ))}
@@ -139,7 +142,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
                     >
                       <Image
                         src={photoURL}
-                        alt="Preview Photo"
+                        alt={t('Preview Photo')}
                         className="rounded-[4px]"
                         fill
                         quality={1}
