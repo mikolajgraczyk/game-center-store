@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Icon from './icon';
 
@@ -10,6 +10,17 @@ interface IGamePhotoSlider {
 function GamePhotoSlider({ photos }: IGamePhotoSlider) {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(0);
+  const [isPhotoHovered, setIsPhotoHovered] = useState(false);
+
+  const thumbnailCardsNumber = Math.ceil(photos.length / 5);
+  const thumbnailsCards = Array.from({ length: thumbnailCardsNumber }, (v, k) => k + 1);
+
+  const photosToMap = thumbnailsCards.map((card) => {
+    const startIndex = (card - 1) * 5;
+    let endIndex = card * 5;
+    endIndex = endIndex > photos.length ? photos.length : endIndex;
+    return photos.slice(startIndex, endIndex);
+  });
 
   function moveSlider(isForward: boolean) {
     const sliderMaxPosition =
@@ -25,11 +36,30 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
     setSliderPosition((prev) => (prev - 1 < 0 ? Math.floor(sliderMaxPosition) : prev - 1));
   }
 
+  function moveSelectedPhoto(isForward: boolean) {
+    const lastPhoto = photos.length - 1;
+
+    if (isForward) {
+      setSelectedPhotoIndex((prev) => (prev === lastPhoto ? 0 : prev + 1));
+
+      return;
+    }
+    setSelectedPhotoIndex((prev) => (prev === 0 ? lastPhoto : prev - 1));
+  }
+
+  function onThumbnailClick(index: number) {
+    setSelectedPhotoIndex(() => index + sliderPosition * 5);
+  }
+
   return (
     <div className="w-full">
-      <div className="overflow-hidden">
+      <div
+        className="overflow-hidden relative"
+        onMouseEnter={() => setIsPhotoHovered(true)}
+        onMouseLeave={() => setIsPhotoHovered(false)}
+      >
         <motion.div
-          className="flex relative h-full aspect-video"
+          className="flex h-full aspect-video"
           animate={{ translateX: `-${selectedPhotoIndex * 100}%` }}
           transition={{ type: 'tween', duration: 0.3 }}
         >
@@ -45,6 +75,36 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             />
           ))}
         </motion.div>
+        <AnimatePresence>
+          {isPhotoHovered && (
+            <>
+              <motion.button
+                type="button"
+                className="absolute inset-y-0 right-0 bg-gradient-to-l from-buttons-slider px-[32px] mobile:px-[18px]"
+                onClick={() => moveSelectedPhoto(true)}
+                initial={{ x: 88 }}
+                animate={{ x: 0 }}
+                exit={{ x: 88 }}
+                transition={{ type: 'tween', duration: 0.2 }}
+              >
+                <Icon name="sliderArrow" />
+              </motion.button>
+              <motion.button
+                type="button"
+                className="absolute inset-y-0 bg-gradient-to-r from-buttons-slider px-[32px] mobile:px-[18px]"
+                onClick={() => moveSelectedPhoto(false)}
+                initial={{ x: -88 }}
+                animate={{ x: 0 }}
+                exit={{ x: -88 }}
+                transition={{ type: 'tween', duration: 0.2 }}
+              >
+                <div className="rotate-180">
+                  <Icon name="sliderArrow" />
+                </div>
+              </motion.button>
+            </>
+          )}
+        </AnimatePresence>
       </div>
       <div className="aspect-[15.36/1] mt-[20px] flex gap-[8px] justify-between">
         <button
@@ -56,36 +116,41 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             <Icon name="sliderArrow" />
           </div>
         </button>
-        <div className="flex w-full max-w-[647px] overflow-hidden">
+        <div className="overflow-hidden flex gap-[15px] w-full max-w-[647px]">
           <motion.div
-            className="flex gap-[15px] w-full"
-            animate={{ translateX: `-${sliderPosition * 100}%` }}
+            style={{ gridTemplateColumns: `repeat(${photosToMap.length}, auto)` }}
+            className="h-full grid"
+            animate={{ translateX: `-${sliderPosition * 647}px` }}
             transition={{ type: 'tween', duration: 0.2 }}
           >
-            {photos.map((photoURL, index) => {
-              const isSelected = index === selectedPhotoIndex;
+            {photosToMap.map((photosArray) => (
+              <div className="flex gap-[15px] w-[647px]" key={photosArray[0]}>
+                {photosArray.map((photoURL, index) => {
+                  const isSelected = index + 5 * sliderPosition === selectedPhotoIndex;
 
-              return (
-                <button
-                  type="button"
-                  onClick={() => setSelectedPhotoIndex(index)}
-                  className={`h-full aspect-video relative ${
-                    isSelected ? `opacity-100` : `opacity-40`
-                  } hover:opacity-100 transition duration-300`}
-                  key={photoURL}
-                >
-                  <Image
-                    src={photoURL}
-                    alt="Preview Photo"
-                    className="object-cover rounded-[4px]"
-                    fill
-                    quality={1}
-                    priority
-                    unoptimized
-                  />
-                </button>
-              );
-            })}
+                  return (
+                    <button
+                      type="button"
+                      key={photoURL}
+                      className={`aspect-video relative ${
+                        isSelected ? `` : `opacity-50`
+                      } duration-300 hover:opacity-100`}
+                      onClick={() => onThumbnailClick(index)}
+                    >
+                      <Image
+                        src={photoURL}
+                        alt="Preview Photo"
+                        className="rounded-[4px]"
+                        fill
+                        quality={1}
+                        priority
+                        unoptimized
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
           </motion.div>
         </div>
         <button
