@@ -48,5 +48,10 @@
     "Publisher": "Wydawca",
     "Release Date": "Data wydania",
     "Platform": "Platforma"
+  },
+  "logInPopup": {
+    "Please register or log in to continue": "Zarejestruj się lub zaloguj aby kontynuować",
+    "Already registered? Log In": "Jesteś zarejestrowany? Zaloguj się",
+    "Create a free account": "Utwórz bezpłatne konto"
   }
 }

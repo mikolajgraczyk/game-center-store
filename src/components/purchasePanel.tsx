@@ -1,17 +1,28 @@
+import { Dispatch, SetStateAction } from 'react';
 import { useTranslations } from 'next-intl';
 import { Game } from '@/constants/types';
 import calculatePrice from '@/scripts/calculatePrice';
 
 type IPurchasePanel = {
   game: Game;
+  setIsPopupVisible: Dispatch<SetStateAction<boolean>>;
 };
 
-function PurchasePanel({ game }: IPurchasePanel) {
+function PurchasePanel({ game, setIsPopupVisible }: IPurchasePanel) {
   const t = useTranslations('gamePage');
 
   const { variant, discount, price } = game;
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
+
+  function buyGame() {
+    const isLoggedIn = false;
+
+    if (!isLoggedIn) {
+      setIsPopupVisible(true);
+    }
+    // proceedPayment();
+  }
 
   return (
     <div className="flex flex-col space-y-[10px]">
@@ -33,6 +44,7 @@ function PurchasePanel({ game }: IPurchasePanel) {
       )}
       <button
         type="button"
+        onClick={buyGame}
         className="py-[16px] w-[100%] text-[12px] rounded-[4px] bg-backgrounds-buyNowButton"
       >
         {t('BUY NOW')}
