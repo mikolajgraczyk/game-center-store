@@ -127,7 +127,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             <Icon name="sliderArrow" />
           </div>
         </button>
-        <div className="overflow-hidden flex gap-[15px] w-full max-w-[647px]">
+        <div className="overflow-hidden max-w-[647px]">
           <motion.div
             style={{ gridTemplateColumns: `repeat(${photosToMap.length}, auto)` }}
             className="h-full grid"
