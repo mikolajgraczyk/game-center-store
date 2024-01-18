@@ -110,13 +110,13 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
                       style={{ width: `${100 / photosPerSlide}%` }}
                       className={`relative ${
                         isSelected ? `` : `opacity-50`
-                      } duration-300 hover:opacity-100 h-full`}
+                      } duration-300 hover:opacity-100 `}
                       onClick={() => onThumbnailClick(index)}
                     >
                       <Image
                         src={photoURL}
                         alt={t('Preview Photo')}
-                        className="rounded-[4px] object-cover object-center"
+                        className="rounded-[4px] object-cover"
                         fill
                         quality={1}
                         priority
