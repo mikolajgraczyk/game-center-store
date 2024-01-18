@@ -17,7 +17,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
   const {
     photosToMap,
     sliderPosition,
-    sliderMaxPosition,
+    slidersAmount,
     selectedPhotoIndex,
     photosPerSlide,
     moveSlider,
@@ -82,7 +82,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
       </div>
       <div className="aspect-[15.36/1] mt-[20px] flex gap-[8px] justify-between">
         <button
-          disabled={sliderMaxPosition < 1}
+          disabled={slidersAmount === 1}
           type="button"
           className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200 disabled:opacity-30"
           onClick={() => moveSlider(false)}
@@ -91,15 +91,15 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             <Icon name="sliderArrow" />
           </div>
         </button>
-        <div className="overflow-hidden max-w-[647px]">
+        <div className="overflow-hidden w-full">
           <motion.div
-            style={{ gridTemplateColumns: `repeat(${photosToMap.length}, auto)` }}
-            className="h-full grid"
-            animate={{ translateX: `-${sliderPosition * 647}px` }}
+            style={{ width: `${slidersAmount}00%` }}
+            className="h-full flex"
+            animate={{ translateX: `-${(sliderPosition / slidersAmount) * 100}%` }}
             transition={{ type: 'tween', duration: 0.2 }}
           >
             {photosToMap.map((photosArray) => (
-              <div className="flex gap-[15px] w-[647px]" key={photosArray[0]}>
+              <div className="flex gap-[15px] w-full" key={photosArray[0]}>
                 {photosArray.map((photoURL, index) => {
                   const isSelected = index + photosPerSlide * sliderPosition === selectedPhotoIndex;
 
@@ -107,15 +107,16 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
                     <button
                       type="button"
                       key={photoURL}
-                      className={`aspect-video relative ${
+                      style={{ width: `${100 / photosPerSlide}%` }}
+                      className={`relative ${
                         isSelected ? `` : `opacity-50`
-                      } duration-300 hover:opacity-100`}
+                      } duration-300 hover:opacity-100 h-full`}
                       onClick={() => onThumbnailClick(index)}
                     >
                       <Image
                         src={photoURL}
                         alt={t('Preview Photo')}
-                        className="rounded-[4px]"
+                        className="rounded-[4px] object-cover object-center"
                         fill
                         quality={1}
                         priority
@@ -129,7 +130,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
           </motion.div>
         </div>
         <button
-          disabled={sliderMaxPosition < 1}
+          disabled={slidersAmount === 1}
           type="button"
           className="bg-buttons-slider p-[8px] self-center rounded-full hover:bg-buttons-slider/50 transition duration-200 disabled:opacity-30"
           onClick={() => moveSlider(true)}

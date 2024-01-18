@@ -16,20 +16,14 @@ function useSlider(photos: string[]) {
     return photos.slice(startIndex, endIndex);
   });
 
-  const sliderMaxPosition =
-    (photos.length / photosPerSlide) % 1 === 0
-      ? photos.length / photosPerSlide - 0.1
-      : photos.length / photosPerSlide;
+  const slidersAmount = Math.ceil(photos.length / photosPerSlide);
 
   function moveSlider(isForward: boolean) {
     if (isForward) {
-      setSliderPosition((prev) => (prev + 1 >= sliderMaxPosition ? 0 : prev + 1));
+      setSliderPosition((prev) => (prev + 1 === slidersAmount ? 0 : prev + 1));
       return;
     }
-    if (sliderMaxPosition === 1) {
-      return;
-    }
-    setSliderPosition((prev) => (prev - 1 < 0 ? Math.floor(sliderMaxPosition) : prev - 1));
+    setSliderPosition((prev) => (prev === 0 ? slidersAmount - 1 : prev - 1));
   }
 
   function moveSelectedPhoto(isForward: boolean) {
@@ -53,7 +47,7 @@ function useSlider(photos: string[]) {
   return {
     photosToMap,
     sliderPosition,
-    sliderMaxPosition,
+    slidersAmount,
     selectedPhotoIndex,
     photosPerSlide,
     moveSlider,
