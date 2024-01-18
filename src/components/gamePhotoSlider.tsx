@@ -99,7 +99,7 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
             transition={{ type: 'tween', duration: 0.2 }}
           >
             {photosToMap.map((photosArray) => (
-              <div className="flex gap-[15px] w-full" key={photosArray[0]}>
+              <div className="flex gap-[15px] w-full justify-center" key={photosArray[0]}>
                 {photosArray.map((photoURL, index) => {
                   const isSelected = index + photosPerSlide * sliderPosition === selectedPhotoIndex;
 
@@ -110,13 +110,13 @@ function GamePhotoSlider({ photos }: IGamePhotoSlider) {
                       style={{ width: `${100 / photosPerSlide}%` }}
                       className={`relative ${
                         isSelected ? `` : `opacity-50`
-                      } duration-300 hover:opacity-100 `}
+                      } duration-300 hover:opacity-100 max-w-[120px]`}
                       onClick={() => onThumbnailClick(index)}
                     >
                       <Image
                         src={photoURL}
                         alt={t('Preview Photo')}
-                        className="rounded-[4px] object-cover"
+                        className="rounded-[4px]"
                         fill
                         quality={1}
                         priority
