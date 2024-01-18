@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import useWindowWidth from './useWindowWidth';
 
 function useSlider(photos: string[]) {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(0);
 
-  const photosPerSlide = 5;
+  const windowWidth = useWindowWidth();
+
+  const photosPerSlide = windowWidth < 600 ? 3 : 5;
 
   const thumbnailCardsNumber = Math.ceil(photos.length / photosPerSlide);
   const thumbnailsCards = Array.from({ length: thumbnailCardsNumber }, (v, k) => k + 1);
