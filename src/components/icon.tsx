@@ -6,6 +6,7 @@ import FacebookLogo from '@icons/FacebookLogo.svg';
 import GoogleLogo from '@icons/GoogleLogo.svg';
 import Logo from '@icons/GameCenterLogo.svg';
 import SliderArrow from '@icons/sliderArrow.svg';
+import Star from '@icons/Star.svg';
 
 interface IconProps {
   name: string;
@@ -20,6 +21,7 @@ const iconComponents: Record<string, React.FC<IconProps>> = {
   google: GoogleLogo,
   logo: Logo,
   sliderArrow: SliderArrow,
+  star: Star,
 };
 function Icon(props: IconProps) {
   const { name } = props;
