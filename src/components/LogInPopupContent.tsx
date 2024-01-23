@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import useRoutes from '@/hooks/useRoutes';
 
-function LogInPopup() {
+function LogInPopupContent() {
   const routes = useRoutes();
   const t = useTranslations('logInPopup');
 
@@ -29,4 +29,4 @@ function LogInPopup() {
   );
 }
 
-export default LogInPopup;
+export default LogInPopupContent;
