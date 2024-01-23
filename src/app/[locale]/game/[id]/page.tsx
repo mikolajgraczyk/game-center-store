@@ -11,7 +11,8 @@ import GameInsightHub from '@/components/gameInsightHub';
 import PurchasePanel from '@/components/purchasePanel';
 import GameInfoHub from '@/components/gameInfoHub';
 import Icon from '@/components/icon';
-import LogInPopup from '@/components/LogInPopup';
+import PopUp from '@/components/PopUp';
+import LogInPopupContent from '@/components/LogInPopupContent';
 
 interface IGamePage {
   params: { id: number | string };
@@ -87,7 +88,7 @@ function GamePage({ params }: IGamePage) {
             <GameInfoHub title={t('Platform')} content={getPlatformIcon(game.details.platforms)} />
           </div>
         </div>
-        {isPopupVisible && <LogInPopup />}
+        {isPopupVisible && <PopUp content={<LogInPopupContent />} />}
       </main>
     );
   }
