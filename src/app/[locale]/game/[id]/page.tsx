@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import fetchGame from '@/apiUrls/game';
@@ -11,16 +10,12 @@ import GameInsightHub from '@/components/gameInsightHub';
 import PurchasePanel from '@/components/purchasePanel';
 import GameInfoHub from '@/components/gameInfoHub';
 import Icon from '@/components/icon';
-import PopUp from '@/components/PopUp';
-import LogInPopupContent from '@/components/LogInPopupContent';
 
 interface IGamePage {
   params: { id: number | string };
 }
 
 function GamePage({ params }: IGamePage) {
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-
   const { getErrorMessage } = useGetErrorMessage();
   const t = useTranslations('gamePage');
 
@@ -79,7 +74,7 @@ function GamePage({ params }: IGamePage) {
         </div>
         <div className="flex flex-col justify-evenly tablet:items-end tablet:grid tablet:grid-cols-[1fr,1fr] tablet:gap-[24px] mobile:grid-cols-1 mobile:gap-[38px]">
           <div className="w-[320px] mobile:w-[100%]">
-            <PurchasePanel game={game} setIsPopupVisible={setIsPopupVisible} />
+            <PurchasePanel game={game} />
           </div>
           <div className="w-[100%] max-w-[320px] text-texts-main mobile:max-w-none tablet:justify-self-end">
             <GameInfoHub title={t('Developer')} content={game.details.dev} />
@@ -88,7 +83,6 @@ function GamePage({ params }: IGamePage) {
             <GameInfoHub title={t('Platform')} content={getPlatformIcon(game.details.platforms)} />
           </div>
         </div>
-        {isPopupVisible && <PopUp content={<LogInPopupContent />} />}
       </main>
     );
   }
