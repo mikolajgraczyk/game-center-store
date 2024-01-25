@@ -20,6 +20,10 @@ const gameSchema = new Schema(
       type: String,
       required: true,
     },
+    preview_photos: {
+      type: [String],
+      validate: (v: []) => Array.isArray(v) && v.length > 0,
+    },
     variant: {
       type: String,
       enum: ['BASE GAME', 'DLC', 'DEMO'],
