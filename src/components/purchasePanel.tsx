@@ -29,7 +29,7 @@ function PurchasePanel({ game }: IPurchasePanel) {
 
   return (
     <>
-      <div className="flex flex-col space-y-[10px]">
+      <div className="flex flex-col space-y-[10px] w-[320px] mobile:w-[100%]">
         <div className="bg-backgrounds-white bg-opacity-10 text-texts-main text-[9px] py-[5px] px-[10px] self-start text-center rounded-[4px] mobile:self-center">
           {variant}
         </div>

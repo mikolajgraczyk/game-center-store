@@ -47,7 +47,8 @@
     "Developer": "Developer",
     "Publisher": "Publisher",
     "Release Date": "Release Date",
-    "Platform": "Platform"
+    "Platform": "Platform",
+    "Preview Photo": "Preview Photo"
   },
   "logInPopup": {
     "Please register or log in to continue": "Please register or log in to continue",
