@@ -49,5 +49,10 @@
     "Release Date": "Release Date",
     "Platform": "Platform",
     "Preview Photo": "Preview Photo"
+  },
+  "logInPopup": {
+    "Please register or log in to continue": "Please register or log in to continue",
+    "Already registered? Log In": "Already registered? Log In",
+    "Create a free account": "Create a free account"
   }
 }
