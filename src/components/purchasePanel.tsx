@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Game } from '@/constants/types';
+import { Game } from '@/types/game';
 import calculatePrice from '@/scripts/calculatePrice';
 import PopUp from './PopUp';
 import LogInPopupContent from './LogInPopupContent';

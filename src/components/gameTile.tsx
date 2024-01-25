@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Game } from '@/constants/types';
+import { Game } from '@/types/game';
 import calculatePrice from '@/scripts/calculatePrice';
 import useRoutes from '@/hooks/useRoutes';
 

@@ -1,9 +1,11 @@
+import { Document } from 'mongoose';
+
 export interface Review {
   userId: string;
   score: number;
 }
 
-export interface Game {
+export interface Game extends Document {
   name: string;
   price: number;
   discount?: number;
@@ -22,5 +24,4 @@ export interface Game {
   highlightedFeatures?: string[];
   createdAt?: Date;
   updatedAt?: Date;
-  _id: string | number;
 }
