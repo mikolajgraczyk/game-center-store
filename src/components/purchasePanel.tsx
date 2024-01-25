@@ -18,7 +18,7 @@ function PurchasePanel({ game }: IPurchasePanel) {
 
   const finalPrice = discount ? calculatePrice(discount, price) : price;
 
-  function buyGame() {
+  function buyGameHandler() {
     const isLoggedIn = false;
 
     if (!isLoggedIn) {
@@ -48,7 +48,7 @@ function PurchasePanel({ game }: IPurchasePanel) {
         )}
         <button
           type="button"
-          onClick={buyGame}
+          onClick={buyGameHandler}
           className="py-[16px] w-[100%] text-[12px] rounded-[4px] bg-backgrounds-buyNowButton"
         >
           {t('BUY NOW')}
