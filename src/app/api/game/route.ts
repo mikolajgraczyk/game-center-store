@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Game from '@models/game';
 import { FilterQuery } from 'mongoose';
 import connect from '@/libs/db';
-import { Game as TypeGame, Review } from '@/constants/types';
+import { IGame as TypeGame, Review } from '@/types/game';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);

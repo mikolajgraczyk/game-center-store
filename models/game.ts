@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Game } from '@/types/game';
+import { IGame } from '@/types/game';
 
 const { Schema } = mongoose;
 
@@ -74,4 +74,4 @@ const gameSchema = new Schema(
   { timestamps: true },
 );
 
-export default mongoose.models.Game || mongoose.model<Game>('Game', gameSchema);
+export default mongoose.models.Game || mongoose.model<IGame>('Game', gameSchema);

@@ -5,7 +5,10 @@
   },
   "errors": {
     "DEFAULT_ERROR_MESSAGE": "An error occurred",
-    "FAIL_LOADING_GAME": "Fail loading game"
+    "FAIL_LOADING_GAME": "Fail loading game",
+    "INVALID_USER_DATA": "Invalid user data",
+    "USER_EXISTS": "User with this email adress already exists",
+    "USER_REGISTER_FAIL": "Fail registering"
   },
   "header": {
     "Login/Register": "Login/Register"

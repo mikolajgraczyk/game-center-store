@@ -5,7 +5,7 @@ export interface Review {
   score: number;
 }
 
-export interface Game extends Document {
+export interface IGame extends Document {
   name: string;
   price: number;
   discount?: number;

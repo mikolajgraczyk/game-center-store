@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { useQuery } from '@tanstack/react-query';
-import { Game } from '@/types/game';
+import { IGame } from '@/types/game';
 import fetchGames from '@/apiUrls/games';
 import queryKeys from '@/constants/queryKeys';
 import createNumberArray from '@/scripts/arrayMethods';
@@ -56,7 +56,7 @@ function HotDeals() {
     <Wrapper>
       {data && data.length ? (
         <>
-          {data.map((game: Game) => (
+          {data.map((game: IGame) => (
             <div key={game._id}>
               <GameTile game={game} />
             </div>
