@@ -23,7 +23,6 @@ export const authOptions: NextAuthOptions = {
         if (res.ok && user) {
           return user;
         }
-
         return null;
       },
     }),
