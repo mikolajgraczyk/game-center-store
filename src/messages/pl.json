@@ -8,7 +8,8 @@
     "FAIL_LOADING_GAME": "Błąd ładowania gry",
     "INVALID_USER_DATA": "Błędne dane użytkownika",
     "USER_EXISTS": "Użytkownik z podanym adresem email już istnieje",
-    "USER_REGISTER_FAIL": "Błąd podczas rejestrowania"
+    "USER_REGISTER_FAIL": "Błąd podczas rejestrowania",
+    "INVALID_EMAIL_OR_PASSWORD": "Niepoprawny email lub hasło"
   },
   "header": {
     "Login/Register": "Zaloguj się/Zarejestruj się"

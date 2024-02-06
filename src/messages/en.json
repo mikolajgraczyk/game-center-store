@@ -8,7 +8,8 @@
     "FAIL_LOADING_GAME": "Fail loading game",
     "INVALID_USER_DATA": "Invalid user data",
     "USER_EXISTS": "User with this email adress already exists",
-    "USER_REGISTER_FAIL": "Fail registering"
+    "USER_REGISTER_FAIL": "Fail registering",
+    "INVALID_EMAIL_OR_PASSWORD": "Invalid email or password"
   },
   "header": {
     "Login/Register": "Login/Register"

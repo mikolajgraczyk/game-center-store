@@ -1,7 +1,7 @@
 import apiUrl from '@/constants/apiUrl';
-import { IUser } from '@/types/user';
+import { IRegisterUserData } from '@/types/user';
 
-const registerUser = async (data: IUser) => {
+const registerUser = async (data: IRegisterUserData) => {
   const res = await fetch(`${apiUrl}/register`, {
     method: 'POST',
     headers: {

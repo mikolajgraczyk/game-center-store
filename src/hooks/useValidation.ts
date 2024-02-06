@@ -14,7 +14,7 @@ const useValidationSchema = () => {
       .typeError(t('Age is required'))
       .positive()
       .min(13, t('User should be at least 13 years old')),
-    mail: Yup.string().required(t('Email is required')).email(t('Invalid email format')),
+    email: Yup.string().required(t('Email is required')).email(t('Invalid email format')),
     password: Yup.string()
       .required(t('Password is required'))
       .matches(
@@ -27,7 +27,7 @@ const useValidationSchema = () => {
   });
 
   const loginValidationSchema = Yup.object().shape({
-    mail: Yup.string().required(t('Email is required')).email(t('Invalid email format')),
+    email: Yup.string().required(t('Email is required')).email(t('Invalid email format')),
     password: Yup.string()
       .required(t('Password is required'))
       .matches(
