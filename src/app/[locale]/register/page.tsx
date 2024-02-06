@@ -6,6 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import useValidationSchema from '@/hooks/useValidation';
 import Input from '@/components/input';
 import LoginTab from '@/components/loginTab';
+import registerUser from '@/apiUrls/registerUser';
+import { IUserFormData } from '@/types/user';
 
 function Register() {
   const t = useTranslations('form');
@@ -13,11 +15,18 @@ function Register() {
   const { registerValidationSchema } = useValidationSchema();
   const formOptions = { resolver: yupResolver(registerValidationSchema) };
 
-  const methods = useForm(formOptions);
+  const methods = useForm<IUserFormData>(formOptions);
   const {
     handleSubmit,
     formState: { errors },
   } = methods;
+
+  const onSubmit = (data: IUserFormData) => {
+    const formattedData = { ...data };
+    const { name, surname, age, email, password } = formattedData;
+
+    registerUser({ name, surname, age, email, password });
+  };
 
   return (
     <main className="flex items-center justify-center h-[calc(100%-120px)]">
@@ -25,7 +34,7 @@ function Register() {
         <FormProvider {...methods}>
           <form
             className="flex flex-col gap-[20px] w-full mt-[27.78px]"
-            onSubmit={handleSubmit((data) => alert(JSON.stringify(data)))}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <Input
               id="name"
@@ -46,10 +55,10 @@ function Register() {
               errorMessage={errors.age?.message}
             />
             <Input
-              id="mail"
+              id="email"
               placeholder={t('Email *')}
               type="email"
-              errorMessage={errors.mail?.message}
+              errorMessage={errors.email?.message}
             />
             <Input
               id="password"
