@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Game from '@models/game';
 import { FilterQuery } from 'mongoose';
 import connect from '@/libs/db';
-import { IGame as TypeGame, Review } from '@/types/game';
+import { IGame, Review } from '@/types/game';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
 
   await connect();
 
-  function parseData(gameData: FilterQuery<TypeGame>) {
+  function parseData(gameData: FilterQuery<IGame>) {
     const { reviews, ...restData } = gameData._doc;
     const score = Number(
       (
